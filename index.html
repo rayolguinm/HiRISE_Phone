@@ -209,11 +209,23 @@ html,body{height:100%;background:var(--bg);font-family:var(--font);color:var(--t
     <div class="sec">Performance</div>
     <div class="kgrid">
       <div class="kbox acc"><div class="kn">500<span style="font-size:14px">%</span></div><div class="kl">Efficiency</div><div class="ks">1&#8594;5/week</div></div>
-      <div class="kbox"><div class="kn">&gt;25</div><div class="kl">DTMs</div><div class="ks">NASA std.</div></div>
-      <div class="kbox"><div class="kn sm">&gt;1,300</div><div class="kl">Hours</div><div class="ks">2025&#8211;26</div></div>
-      <div class="kbox"><div class="kn">&gt;30</div><div class="kl">Collabs.</div><div class="ks">NASA/ESA</div></div>
+      <div class="kbox"><div class="kn">&gt;30</div><div class="kl">DTMs</div><div class="ks">NASA std.</div></div>
+      <div class="kbox"><div class="kn sm">&gt;1,820</div><div class="kl">Hours</div><div class="ks">2025&#8211;26</div></div>
+      <div class="kbox"><div class="kn">&gt;50</div><div class="kl">Collabs.</div><div class="ks">NASA/ESA</div></div>
       <div class="kbox"><div class="kn sm">$15K+</div><div class="kl">Grant</div><div class="ks">Lab infra.</div></div>
       <div class="kbox"><div class="kn">2</div><div class="kl">Missions</div><div class="ks">MRO · EC</div></div>
+    </div>
+    <div class="card" style="margin-bottom:12px">
+      <div class="cb" style="display:flex;align-items:flex-start;gap:13px;padding:15px 16px">
+        <div style="flex-shrink:0;text-align:center;min-width:62px">
+          <div style="font-size:26px;font-weight:700;letter-spacing:-.04em;color:var(--navy);line-height:1">1,260</div>
+          <div style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-top:4px">DTM<br>Projects</div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:4px">VR / AR Visualization Library</div>
+          <div style="font-size:12px;color:var(--t2);line-height:1.6">Processed and prepared 1,260 HiRISE Digital Terrain Model projects for VR and AR visualization, creating a scalable planetary data visualization library ready for immersive exploration, scientific interpretation, and future mission&#8211;aligned research applications.</div>
+        </div>
+      </div>
     </div>
 
     <!-- MISSIONS + INSTRUMENTS -->
@@ -296,7 +308,7 @@ html,body{height:100%;background:var(--bg);font-family:var(--font);color:var(--t
         <div style="font-size:30px;font-weight:700;letter-spacing:-.05em">Mars DTMs</div>
         <div style="font-size:12px;color:var(--t3);margin-top:2px">MOLA · USGS I-2782 · Areocentric Equirectangular</div>
       </div>
-      <div id="mapCount" style="font-size:11px;font-weight:600;color:var(--t2);font-family:var(--mono);background:var(--card);padding:4px 10px;border-radius:20px;box-shadow:var(--sh)">19 DTMs</div>
+      <div id="mapCount" style="font-size:11px;font-weight:600;color:var(--t2);font-family:var(--mono);background:var(--card);padding:4px 10px;border-radius:20px;box-shadow:var(--sh)">22 DTMs</div>
     </div>
     <div class="mwrap"><svg class="msvg" id="mapSvg" viewBox="0 0 700 280"></svg></div>
     <div class="rf" id="regionFilters"></div>
@@ -350,8 +362,8 @@ html,body{height:100%;background:var(--bg);font-family:var(--font);color:var(--t
         <div class="cs">LPL · HiRISE PI: Shane Byrne · CTX PI: M.C. Malin · MRO</div>
         <div class="tg3">
           <div class="t"><div class="tl">Efficiency</div><div class="tv lg">500%</div></div>
-          <div class="t"><div class="tl">DTMs</div><div class="tv lg">&gt;25</div></div>
-          <div class="t"><div class="tl">Hours</div><div class="tv">&gt;1,300</div></div>
+          <div class="t"><div class="tl">DTMs</div><div class="tv lg">&gt;30</div></div>
+          <div class="t"><div class="tl">Hours</div><div class="tv">&gt;1,820</div></div>
         </div>
         <div class="bars">
           <div class="br"><div class="bl">Photogrammetric Training</div><div class="bt"><div class="bf" style="width:95%"></div></div><div class="bv">&gt;35h/wk</div></div>
@@ -621,7 +633,7 @@ html,body{height:100%;background:var(--bg);font-family:var(--font);color:var(--t
 
 <script>
 var RC={"South Polar":"#1d4ed8","North Polar":"#0ea5e9","Equatorial":"#1a1a1a","Mid-Latitude":"#15803d","High-Latitude":"#7c3aed"};
-var SHORT=["S. Polar Dep. A","S. Polar Dep. B","N. Polar Bench","Coogoon Valles","Aram Chaos","Oxia Colles","Olympus Mons Sys.","Argyre Val.","Noachis Craters","Arcadia Planitia","Chaos Terrain","Gullies Tempe T.","Gorgonum Chaos","Uranius Mons Cr.","Aeolis Planum","Phlegra Montes V.","Pasteur Crater","Hebes Mensa Dep.","Landon Valles B."];
+var SHORT=["S. Polar Dep. A","S. Polar Dep. B","N. Polar Bench","Coogoon Valles","Aram Chaos","Oxia Colles","Olympus Mons Sys.","Argyre Val.","Noachis Craters","Arcadia Planitia","Chaos Terrain","Gullies Tempe T.","Gorgonum Chaos","Uranius Mons Cr.","Aeolis Planum","Phlegra Montes V.","Pasteur Crater","Hebes Mensa Dep.","Landon Valles B.","Brain Terrain","Terra Sirenum","Cavi Angusti S.P."];
 var PUBS=[
   {name:"South_Polar_Deposits_1416E_871S",dstr:"Mar 31, 2026",lon:141.6,lat:-87.1,min:3483.70,max:3722.49,relief:238.79,region:"South Polar",url:"https://www.uahirise.org/dtm/ESP_023009_0930",img:["ESP_023009_0930","ESP_022839_0930"],geo:"The South Polar Layered Deposits are ~3 km thick, recording obliquity-driven climate cycles. SHARAD radar confirmed near-pure water ice composition.",cite:"Plaut et al. (2007). Science, 316(5821)."},
   {name:"South_Polar_Deposits_2180E_887S",dstr:"Feb 4, 2026",lon:218.0,lat:-88.7,min:2511.61,max:3309.36,relief:797.75,region:"South Polar",url:"https://www.uahirise.org/dtm/PSP_005721_0910",img:["PSP_005721_0910","PSP_005735_0890"],geo:"Active CO2 slab sublimation documents present-day volatile transport on Mars.",cite:"Thomas et al. (2009). Icarus, 203(2)."},
@@ -641,7 +653,10 @@ var PUBS=[
   {name:"Phlegra_Montes_Valley_1629E_385N",dstr:"Sep 1, 2025",lon:162.9,lat:38.5,min:-3042.26,max:-2146.04,relief:896.22,region:"High-Latitude",url:"https://www.uahirise.org/dtm/ESP_089007_2190",img:["ESP_089007_2190","ESP_069729_2190"],geo:"NW-trending mountains with lobate debris aprons — evidence for extant non-polar ice on Mars.",cite:"Levy et al. (2014). JGR:Planets, 119(10)."},
   {name:"Pasteur_Crater_2440E_192N",dstr:"Sep 1, 2025",lon:244.0,lat:19.2,min:-3022.50,max:-2791.02,relief:231.48,region:"Equatorial",url:"https://www.uahirise.org/dtm/ESP_055160_1995",img:["ESP_055160_1995","ESP_055437_1995"],geo:"Interior layered deposits in Arabia Terra. Largest concentration of sedimentary basins on Mars.",cite:"Edgett and Malin (2002). GRL, 29(24)."},
   {name:"Hebes_Mensa_deposit_2848E_013S",dstr:"Jul 1, 2025",lon:284.8,lat:-1.3,min:-3497.20,max:-527.24,relief:2969.96,region:"Equatorial",url:"https://www.uahirise.org/dtm/ESP_017319_1785",img:["ESP_017319_1785","ESP_017385_1785"],geo:"Hebes Mensa rises ~8 km from chasma floor. Thickest sedimentary sequence on Mars.",cite:"Schmidt et al. (2018). JGR:Planets, 124(2)."},
-  {name:"Landon_Valles_basin_3304E_195S",dstr:"Jul 1, 2025",lon:330.4,lat:-19.5,min:-1954.19,max:-1819.13,relief:135.06,region:"Equatorial",url:"https://www.uahirise.org/dtm/ESP_034143_1605",img:["ESP_034143_1605","ESP_034209_1605"],geo:"Noachian valley network recording peak fluvial activity ~3.7 Ga. Early Mars habitability record.",cite:"Hynek et al. (2010). JGR:Planets, 115(E9)."}
+  {name:"Landon_Valles_basin_3304E_195S",dstr:"Jul 1, 2025",lon:330.4,lat:-19.5,min:-1954.19,max:-1819.13,relief:135.06,region:"Equatorial",url:"https://www.uahirise.org/dtm/ESP_034143_1605",img:["ESP_034143_1605","ESP_034209_1605"],geo:"Noachian valley network recording peak fluvial activity ~3.7 Ga. Early Mars habitability record.",cite:"Hynek et al. (2010). JGR:Planets, 115(E9)."},
+  {name:"Brain_Terrain_3093E_436N",dstr:"May 29, 2026",lon:309.3,lat:43.6,min:-3567.99,max:-3217.73,relief:350.26,region:"High-Latitude",url:"https://www.uahirise.org/dtm/ESP_079099_2240",img:["ESP_079099_2240","ESP_078954_2240"],geo:"Brain terrain — convoluted ridge-and-cell textures formed by sublimation of buried mid-latitude ice. A diagnostic marker of subsurface volatile loss.",cite:"Levy et al. (2009). JGR:Planets, 114(E1)."},
+  {name:"Terra_Sirenum_2161E_468S",dstr:"May 29, 2026",lon:216.1,lat:-46.8,min:2845.56,max:3066.69,relief:221.13,region:"High-Latitude",url:"https://www.uahirise.org/dtm/ESP_074461_1330",img:["ESP_074461_1330","ESP_075450_1330"],geo:"Heavily cratered Noachian highlands hosting chloride and phyllosilicate deposits — evidence of ancient aqueous environments in the southern hemisphere.",cite:"Osterloo et al. (2010). JGR:Planets, 115(E10)."},
+  {name:"Cavil_Angusti_South_Polar_2834E_765S",dstr:"May 5, 2026",lon:283.4,lat:-76.5,min:757.61,max:2443.03,relief:1685.42,region:"South Polar",url:"https://www.uahirise.org/dtm/ESP_013720_1035",img:["ESP_013720_1035","ESP_013707_1035"],geo:"Cavi Angusti — deep collapse pits and scarps carved into the south polar layered deposits by CO2/H2O sublimation, exposing ~1.7 km of polar stratigraphy.",cite:"Tanaka and Kolb (2001). Icarus, 154(1)."}
 ];
 
 var activeReg='all';
@@ -741,7 +756,7 @@ function openSheet(i){
       '<div class="smt"><div class="smv" style="font-size:15px">'+fe(p.max)+'</div><div class="sml">Max m</div></div>'+
       '<div class="smt" style="background:'+c+'18;border:1px solid '+c+'33"><div class="smv" style="color:'+c+'">'+p.relief.toFixed(0)+'</div><div class="sml" style="color:'+c+'99">Relief m</div></div>'+
     '</div>'+
-    '<div style="font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">Relative Relief vs All 19 DTMs</div>'+
+    '<div style="font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">Relative Relief vs All 22 DTMs</div>'+
     '<div class="sb2"><div class="sbf" style="width:'+pct+'%;background:'+c+';transition:width .6s cubic-bezier(.34,1.56,.64,1)"></div></div>'+
     '<div class="scard">'+
       '<div class="sr"><div class="srl">Lat / Lon</div><div class="srv">'+lat+'<br>'+lon+'</div></div>'+
