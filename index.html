@@ -1077,10 +1077,44 @@ function coordText(p,d){
   d=d||3;var lon=((p.lon%360)+360)%360;
   return lon.toFixed(d)+'°E · '+Math.abs(p.lat).toFixed(d)+'°'+(p.lat>=0?'N':'S');
 }
-var MARS_R_M=3396190;
+var MARS_R_M=3396190, MARS_RP_M=3376200;
+function isNorthPolarProject(p){return !!p&&(p.region==='North Polar'||p.lat>=65);}
+function isSouthPolarProject(p){return !!p&&(p.region==='South Polar'||p.lat<=-65);}
 function projectedXY(p){
-  var lon=((p.lon%360)+360)%360,signed=lon>180?lon-360:lon;
-  return {x:MARS_R_M*(signed*Math.PI/180)/1000,y:MARS_R_M*(p.lat*Math.PI/180)/1000};
+  var lon=((p.lon%360)+360)%360, lonRad=lon*Math.PI/180, latRad=p.lat*Math.PI/180;
+  if(isNorthPolarProject(p)){
+    var tN=Math.tan(Math.PI/4-latRad/2);
+    return {x:2*(MARS_RP_M/1000)*tN*Math.sin(lonRad), y:-2*(MARS_RP_M/1000)*tN*Math.cos(lonRad), mode:'north_polar'};
+  }
+  if(isSouthPolarProject(p)){
+    var tS=Math.tan(Math.PI/4+latRad/2);
+    return {x:2*(MARS_RP_M/1000)*tS*Math.sin(lonRad), y:2*(MARS_RP_M/1000)*tS*Math.cos(lonRad), mode:'south_polar'};
+  }
+  var signed=lon>180?lon-360:lon;
+  return {x:MARS_R_M*(signed*Math.PI/180)/1000,y:MARS_R_M*(p.lat*Math.PI/180)/1000,mode:'cylindrical'};
+}
+function cartographyMeta(p){
+  if(isNorthPolarProject(p)) return {
+    projection:'North Polar Stereographic<br>HiRISE polar product · poleward of 65°N',
+    body:'IAU 2000 Mars polar cartography<br>LatTS 90°N · Rp 3,376.2 km',
+    vertical:'MOLA areoid<br>GMM‑2B reference',
+    orientation:'North polar product<br>180° at top · 0° meridian down',
+    xy:'Polar stereographic X/Y<br>origin at north pole'
+  };
+  if(isSouthPolarProject(p)) return {
+    projection:'South Polar Stereographic<br>HiRISE polar product · poleward of 65°S',
+    body:'IAU 2000 Mars polar cartography<br>LatTS 90°S · Rp 3,376.2 km',
+    vertical:'MOLA areoid<br>GMM‑2B reference',
+    orientation:'South polar product<br>0° at top · 180° meridian down',
+    xy:'Polar stereographic X/Y<br>origin at south pole'
+  };
+  return {
+    projection:'Simple Cylindrical<br>λ₀ 0°E · φ₀ 0°',
+    body:'IAU 2000 Mars sphere<br>R 3,396,190 m · MOLA control',
+    vertical:'MOLA areoid<br>GMM‑2B reference',
+    orientation:'North ↑ · East →<br>180°E seam · 0°/360°E center',
+    xy:'X east · Y north'
+  };
 }
 function xyText(p){
   var q=projectedXY(p);
@@ -1145,7 +1179,7 @@ function buildProjectSelect(){
 
 function renderProjectModule(i){
   var module=document.getElementById('mapProjectModule');if(!module||!finite(i)||!PUBS[i])return;
-  var p=PUBS[i],c=RC[p.region]||'#111';
+  var p=PUBS[i],c=RC[p.region]||'#111',carto=cartographyMeta(p);
   var midElev=(finite(p.min)&&finite(p.max))?(p.min+p.max)/2:null;
   var minLabel=finite(p.min)?fmtElev(p.min):'—';
   var midLabel=finite(midElev)?fmtElev(midElev):'—';
@@ -1163,12 +1197,12 @@ function renderProjectModule(i){
       '<div class="project-module-badge"><i style="background:'+c+'"></i>'+latZone(p.lat)+'</div>'+
     '</div>'+
     '<div class="cart-card" aria-label="Selected project cartographic and DTM data"><div class="cart-grid">'+
-      '<div class="cart-cell"><div class="cart-k">Map projection</div><div class="cart-v">Simple Cylindrical<br>λ₀ 0°E · φ₀ 0°</div></div>'+
-      '<div class="cart-cell"><div class="cart-k">Horizontal datum</div><div class="cart-v">IAU 2000 Mars sphere<br>R 3,396,190 m · MOLA control</div></div>'+
-      '<div class="cart-cell"><div class="cart-k">Vertical datum</div><div class="cart-v">MOLA areoid<br>GMM‑2B reference</div></div>'+
-      '<div class="cart-cell"><div class="cart-k">Orientation</div><div class="cart-v">North ↑ · East →<br>180°E seam · 0°/360°E center</div></div>'+
+      '<div class="cart-cell"><div class="cart-k">Map projection</div><div class="cart-v">'+carto.projection+'</div></div>'+
+      '<div class="cart-cell"><div class="cart-k">Horizontal datum</div><div class="cart-v">'+carto.body+'</div></div>'+
+      '<div class="cart-cell"><div class="cart-k">Vertical datum</div><div class="cart-v">'+carto.vertical+'</div></div>'+
+      '<div class="cart-cell"><div class="cart-k">Orientation</div><div class="cart-v">'+carto.orientation+'</div></div>'+
       '<div class="cart-cell"><div class="cart-k">Longitude / Latitude</div><div class="cart-v"><strong>'+coordText(p,3)+'</strong><br>planetocentric · positive-east</div></div>'+
-      '<div class="cart-cell"><div class="cart-k">Projected X / Y</div><div class="cart-v"><strong>'+xyText(p)+'</strong><br>X east · Y north</div></div>'+
+      '<div class="cart-cell"><div class="cart-k">Projected X / Y</div><div class="cart-v"><strong>'+xyText(p)+'</strong><br>'+carto.xy+'</div></div>'+
       '<div class="cart-cell"><div class="cart-k">DTM sampling</div><div class="cart-v"><strong>'+(finite(p.post)?p.post+' m/post':'—')+'</strong><br>Project '+String(i+1).padStart(2,'0')+' · '+p.dstr+'</div></div>'+
       '<div class="cart-cell"><div class="cart-k">Mars project zone</div><div class="cart-v"><span class="cart-zone"><i class="cart-dot" style="background:'+c+'"></i><strong>'+p.region+'</strong></span><br>'+latZone(p.lat)+'</div></div>'+
       '<div class="cart-cell cart-wide"><div class="cart-k">Project color altimetry / elevation range</div><div class="cart-v"><strong>'+minLabel+' → '+maxLabel+'</strong><br>Vertical relief '+(finite(p.relief)?p.relief.toFixed(2)+' m':'—')+'</div><div class="cart-alt"></div><div class="project-alt-ticks"><span>'+minLabel+'</span><span>'+midLabel+'</span><span>'+maxLabel+'</span></div></div>'+
