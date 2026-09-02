@@ -108,11 +108,11 @@ html,body{height:100%;background:var(--bg);font-family:var(--font);color:var(--t
 .msvg{width:100%;display:block}
 .rf{display:flex;gap:7px;padding:10px 14px;overflow-x:auto;scrollbar-width:none}
 .rf::-webkit-scrollbar{display:none}
-.rp{flex-shrink:0;font-size:11px;font-weight:500;padding:6px 14px;border-radius:20px;background:var(--card);color:var(--t2);white-space:nowrap;cursor:pointer;box-shadow:var(--sh);transition:all .15s}
+.rp{appearance:none;-webkit-appearance:none;border:0;font-family:var(--font);flex-shrink:0;font-size:11px;font-weight:500;padding:6px 14px;border-radius:20px;background:var(--card);color:var(--t2);white-space:nowrap;cursor:pointer;box-shadow:var(--sh);transition:all .15s}
 .rp:active{transform:scale(.94)}
 .rp.active{color:#fff;box-shadow:none}
 .plist{background:var(--card);border-radius:var(--r);margin:8px 14px;overflow:hidden;box-shadow:var(--sh)}
-.pli{display:flex;align-items:center;gap:11px;padding:11px 16px;border-bottom:.5px solid var(--b1);cursor:pointer;transition:background .1s}
+.pli{appearance:none;-webkit-appearance:none;width:100%;border:0;background:var(--card);font-family:var(--font);text-align:left;display:flex;align-items:center;gap:11px;padding:11px 16px;border-bottom:.5px solid var(--b1);cursor:pointer;transition:background .1s}
 .pli:active{background:var(--bg)}
 .pli:last-child{border:none}
 .pdot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;color:#fff;flex-shrink:0}
@@ -369,12 +369,12 @@ html{scroll-behavior:smooth}
     <div class="rv-viz-panel">
       <div class="rv-viz-head"><div class="rv-viz-title">Planetary Mission Data Processing Chain</div><div class="rv-viz-meta">select processing stage</div></div>
       <div class="rv-viz-flow">
-        <button class="rv-viz-node active" data-target="mexp1">HiRISE / CTX</button>
-        <button class="rv-viz-node" data-target="mexp2">NGATE</button>
-        <button class="rv-viz-node" data-target="mexp3">V&amp;V</button>
-        <button class="rv-viz-node" data-target="mexp4">DTMs</button>
-        <button class="rv-viz-node" data-target="mexp5">XR / VR</button>
-        <button class="rv-viz-node" data-target="mexp6">Missions</button>
+        <button type="button" class="rv-viz-node active" data-target="mexp1">HiRISE / CTX</button>
+        <button type="button" class="rv-viz-node" data-target="mexp2">NGATE</button>
+        <button type="button" class="rv-viz-node" data-target="mexp3">V&amp;V</button>
+        <button type="button" class="rv-viz-node" data-target="mexp4">DTMs</button>
+        <button type="button" class="rv-viz-node" data-target="mexp5">XR / VR</button>
+        <button type="button" class="rv-viz-node" data-target="mexp6">Missions</button>
       </div>
       <div class="rv-viz-detail"></div>
       <div class="rv-viz-bank" style="display:none">
@@ -654,12 +654,12 @@ html{scroll-behavior:smooth}
     <div class="rv-viz-panel">
       <div class="rv-viz-head"><div class="rv-viz-title">Technical Education & Competency Architecture</div><div class="rv-viz-meta">select processing stage</div></div>
       <div class="rv-viz-flow">
-        <button class="rv-viz-node active" data-target="medu1">B.S. EE</button>
-        <button class="rv-viz-node" data-target="medu2">Planetary Sci.</button>
-        <button class="rv-viz-node" data-target="medu3">Math</button>
-        <button class="rv-viz-node" data-target="medu4">CompE</button>
-        <button class="rv-viz-node" data-target="medu5">M.S. Goal</button>
-        <button class="rv-viz-node" data-target="medu6">46 Certs</button>
+        <button type="button" class="rv-viz-node active" data-target="medu1">B.S. EE</button>
+        <button type="button" class="rv-viz-node" data-target="medu2">Planetary Sci.</button>
+        <button type="button" class="rv-viz-node" data-target="medu3">Math</button>
+        <button type="button" class="rv-viz-node" data-target="medu4">CompE</button>
+        <button type="button" class="rv-viz-node" data-target="medu5">M.S. Goal</button>
+        <button type="button" class="rv-viz-node" data-target="medu6">46 Certs</button>
       </div>
       <div class="rv-viz-detail"></div>
       <div class="rv-viz-bank" style="display:none">
@@ -702,9 +702,9 @@ html{scroll-behavior:smooth}
     <div class="rv-viz-panel">
       <div class="rv-viz-head"><div class="rv-viz-title">Planetary Science–Engineering Integration</div><div class="rv-viz-meta">select processing stage</div></div>
       <div class="rv-viz-flow">
-        <button class="rv-viz-node active" data-target="mctx1">Signal Proc.</button>
-        <button class="rv-viz-node" data-target="mctx2">Mathematics</button>
-        <button class="rv-viz-node" data-target="mctx3">Planetary Sci.</button>
+        <button type="button" class="rv-viz-node active" data-target="mctx1">Signal Proc.</button>
+        <button type="button" class="rv-viz-node" data-target="mctx2">Mathematics</button>
+        <button type="button" class="rv-viz-node" data-target="mctx3">Planetary Sci.</button>
       </div>
       <div class="rv-viz-detail"></div>
       <div class="rv-viz-bank" style="display:none">
@@ -865,19 +865,19 @@ html{scroll-behavior:smooth}
 
 <!-- NAV -->
 <nav class="bnav">
-  <div class="ni active" id="nav-home" data-page="home">
+  <div class="ni active" id="nav-home" data-page="home" role="button" tabindex="0" aria-label="Home">
     <div class="ni-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#AB0520" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
     <div class="ni-label" style="color:var(--red)">Home</div>
   </div>
-  <div class="ni" id="nav-map" data-page="map">
+  <div class="ni" id="nav-map" data-page="map" role="button" tabindex="0" aria-label="Map">
     <div class="ni-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
     <div class="ni-label">Map</div>
   </div>
-  <div class="ni" id="nav-exp" data-page="exp">
+  <div class="ni" id="nav-exp" data-page="exp" role="button" tabindex="0" aria-label="Work">
     <div class="ni-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
     <div class="ni-label">Work</div>
   </div>
-  <div class="ni" id="nav-profile" data-page="profile">
+  <div class="ni" id="nav-profile" data-page="profile" role="button" tabindex="0" aria-label="Profile">
     <div class="ni-icon"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
     <div class="ni-label">Profile</div>
   </div>
@@ -1103,7 +1103,7 @@ function buildFilters(){
   var el=document.getElementById('regionFilters');if(!el)return;el.innerHTML='';
   regs.forEach(function(r){
     var v=r==='All'?'all':r,on=activeReg===v,c=r==='All'?'#111':RC[r];
-    var div=document.createElement('div');div.className='rp'+(on?' active':'');
+    var div=document.createElement('button');div.type='button';div.className='rp'+(on?' active':'');div.setAttribute('aria-pressed',on?'true':'false');
     if(on)div.style.cssText='background:'+c+';color:#fff';
     div.textContent=r+(r==='All'?' · 30':'');
     div.addEventListener('click',function(){setReg(v);});el.appendChild(div);
@@ -1121,7 +1121,7 @@ function buildPubList(){
   var el=document.getElementById('pubListItems');if(!el)return;el.innerHTML='';
   list.forEach(function(p){
     var i=PUBS.indexOf(p),c=RC[p.region]||'#111';
-    var div=document.createElement('div');div.className='pli';
+    var div=document.createElement('button');div.type='button';div.className='pli';div.setAttribute('aria-label','Open '+String(i+1).padStart(2,'0')+' '+p.name);
     div.innerHTML='<div class="pdot" style="background:'+c+'">'+(i+1)+'</div>'+
       '<div style="flex:1;min-width:0"><div class="pname" style="overflow-wrap:anywhere">'+p.name+'</div>'+
       '<div class="pmeta">'+coordText(p,1)+' · '+p.dstr+(finite(p.post)?' · '+p.post+' m post':'')+'</div></div>'+
@@ -1276,7 +1276,17 @@ function initMobileMap(){
   function apply(){constrain();scene.style.transform='translate('+st.x+'px,'+st.y+'px) scale('+st.scale+')';scene.style.setProperty('--map-inv',(1/st.scale).toFixed(6));if(zoomRead)zoomRead.textContent=st.scale.toFixed(1)+'×';viewport.classList.toggle('zoomed',st.scale>1.01||Math.abs(st.x)>.5||Math.abs(st.y)>.5);renderTiles(false);layoutMarkers();}
   function zoomAt(clientX,clientY,newScale){var vr=viewport.getBoundingClientRect(),px=clientX-vr.left,py=clientY-vr.top,wx=(px-st.x)/st.scale,wy=(py-st.y)/st.scale;newScale=Math.max(1,Math.min(12,newScale));st.x=px-wx*newScale;st.y=py-wy*newScale;st.scale=newScale;st.tileKey='';apply();}
   function zoomCenter(f){var vr=viewport.getBoundingClientRect();zoomAt(vr.left+vr.width/2,vr.top+vr.height/2,st.scale*f);}
-  function reset(){st.scale=1;st.x=0;st.y=0;st.tileKey='';apply();}
+  function reset(){
+    st.scale=1;st.x=0;st.y=0;st.region='all';st.selected=null;st.tileKey='';st.dragging=false;st.dragStart=null;st.pinch=null;
+    if(st.pointers&&st.pointers.clear)st.pointers.clear();
+    layer.querySelectorAll('.im-marker').forEach(function(m){m.classList.remove('selected','hidden');});
+    layer.querySelectorAll('.im-anchor').forEach(function(m){m.classList.remove('hidden');});
+    var sel=document.getElementById('mapProjectSelect');if(sel)sel.value='';
+    if(coords)coords.textContent='Cursor: longitude · latitude · projected X/Y';
+    activeReg='all';buildFilters();buildPubList();
+    var module=document.getElementById('mapProjectModule');if(module)module.innerHTML='<div class="project-module-empty"><strong>Select any of the 30 HiRISE DTM projects</strong><span>Tap a numbered marker, choose a project above, or tap a project below. This module will update with that project’s cartography, coordinates, MOLA elevation range, DTM sampling, source images, and quality metrics.</span></div>';
+    apply();
+  }
   function focus(i,newScale){var p=PUBS[i],lon=((((p.lon%360)+360)%360)+180)%360,w=viewport.clientWidth,h=viewport.clientHeight;if(w<5)return;st.scale=Math.max(1,Math.min(12,newScale||3));st.x=w/2-(lon/360*w)*st.scale;st.y=h/2-((90-p.lat)/180*h)*st.scale;st.tileKey='';apply();select(i);renderProjectModule(i);}
   function select(i){st.selected=i;layer.querySelectorAll('.im-marker').forEach(function(m){m.classList.toggle('selected',Number(m.dataset.mapIndex)===i);});var sel=document.getElementById('mapProjectSelect');if(sel)sel.value=String(i);}
   function setRegion(r){st.region=r;layer.querySelectorAll('.im-marker,.im-anchor').forEach(function(m){m.classList.toggle('hidden',r!=='all'&&m.dataset.region!==r);});layoutMarkers();}
@@ -1287,10 +1297,13 @@ function initMobileMap(){
   function endPointer(e){st.pointers.delete(e.pointerId);try{viewport.releasePointerCapture(e.pointerId);}catch(_){}if(st.pointers.size===0){st.dragging=false;st.dragStart=null;st.pinch=null;}else if(st.pointers.size===1){var a=Array.from(st.pointers.values())[0];st.dragging=true;st.dragStart={x:a.x,y:a.y,ox:st.x,oy:st.y};st.pinch=null;}}
   viewport.addEventListener('pointerup',endPointer);viewport.addEventListener('pointercancel',endPointer);
   viewport.addEventListener('dblclick',function(e){if(e.target.closest('.im-marker'))return;e.preventDefault();zoomAt(e.clientX,e.clientY,st.scale*1.7);});
-  document.getElementById('mapZoomIn').addEventListener('click',function(){zoomCenter(1.45);});document.getElementById('mapZoomOut').addEventListener('click',function(){zoomCenter(1/1.45);});document.getElementById('mapReset').addEventListener('click',reset);
+  var zoomInBtn=document.getElementById('mapZoomIn'),zoomOutBtn=document.getElementById('mapZoomOut'),resetBtn=document.getElementById('mapReset');
+  if(zoomInBtn)zoomInBtn.addEventListener('click',function(e){e.preventDefault();zoomCenter(1.45);});
+  if(zoomOutBtn)zoomOutBtn.addEventListener('click',function(e){e.preventDefault();zoomCenter(1/1.45);});
+  if(resetBtn)resetBtn.addEventListener('click',function(e){e.preventDefault();reset();});
   if('ResizeObserver'in window){new ResizeObserver(function(){if(viewport.clientWidth>5){st.tileKey='';apply();}}).observe(viewport);}
   renderTiles(true);makeMarkers();apply();
-  mobileMap={focus:focus,select:function(i){select(i);renderProjectModule(i);},setRegion:setRegion,refresh:function(){st.tileKey='';apply();},scale:function(){return st.scale;}};return mobileMap;
+  mobileMap={focus:focus,select:function(i){select(i);renderProjectModule(i);},setRegion:setRegion,reset:reset,refresh:function(){st.tileKey='';apply();},scale:function(){return st.scale;}};return mobileMap;
 }
 
 function ensureMap(){
@@ -1300,9 +1313,13 @@ function ensureMap(){
 }
 
 var niEls=document.querySelectorAll('.ni');
-for(var ni=0;ni<niEls.length;ni++)(function(el){el.addEventListener('click',function(){
-  var name=el.dataset.page;closeSheet();document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('active');n.querySelector('.ni-label').style.color='';n.querySelectorAll('svg *').forEach(function(s){s.setAttribute('stroke','#bbb');});});document.getElementById('pg-'+name).classList.add('active');el.classList.add('active');el.querySelector('.ni-label').style.color='#AB0520';el.querySelectorAll('svg *').forEach(function(s){s.setAttribute('stroke','#AB0520');});document.getElementById('sa').scrollTop=0;if(name==='map')setTimeout(ensureMap,40);
-});})(niEls[ni]);
+for(var ni=0;ni<niEls.length;ni++)(function(el){
+  function activateNav(){
+    var name=el.dataset.page;closeSheet();document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('active');n.querySelector('.ni-label').style.color='';n.querySelectorAll('svg *').forEach(function(s){s.setAttribute('stroke','#bbb');});});document.getElementById('pg-'+name).classList.add('active');el.classList.add('active');el.querySelector('.ni-label').style.color='#AB0520';el.querySelectorAll('svg *').forEach(function(s){s.setAttribute('stroke','#AB0520');});document.getElementById('sa').scrollTop=0;if(name==='map')setTimeout(ensureMap,40);
+  }
+  el.addEventListener('click',activateNav);
+  el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activateNav();}});
+})(niEls[ni]);
 
 buildProjectSelect();buildFilters();buildPubList();
 </script>
