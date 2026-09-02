@@ -496,15 +496,10 @@ html{scroll-behavior:smooth}
         <div class="im-coords" id="mapCoords">Cursor: longitude · latitude · projected X/Y</div>
         <div class="im-dataset">MOLA + HRSC · 200 m/px</div>
       </div>
-      <div class="im-help"><span>Drag · pinch · tap marker → project module below</span><span>north ↑ · east →</span></div>
+      <div class="im-help"><span>Drag · pinch · tap project → ORTHO details</span><span>north ↑ · east →</span></div>
     </div>
 
-    <div class="project-module" id="mapProjectModule" aria-live="polite">
-      <div class="project-module-empty">
-        <strong>Select any of the 30 HiRISE DTM projects</strong>
-        <span>Tap a numbered marker, choose a project above, or tap a project below. This module will update with that project’s cartography, coordinates, MOLA elevation range, DTM sampling, source images, and quality metrics.</span>
-      </div>
-    </div>
+    <div class="project-module" id="mapProjectModule" aria-live="polite" style="display:none"></div>
 
     <div class="rf" id="regionFilters"></div>
     <div class="plist" id="pubListItems"></div>
@@ -1161,7 +1156,7 @@ function buildPubList(){
       '<div class="pmeta">'+coordText(p,1)+' · '+p.dstr+(finite(p.post)?' · '+p.post+' m post':'')+'</div></div>'+
       '<div style="text-align:right;flex-shrink:0"><div class="prel">'+(finite(p.relief)?p.relief.toFixed(0):'—')+'<span style="font-size:9px;color:var(--t3)"> m</span></div><div style="font-size:9px;color:var(--t3)">relief</div></div>'+
       '<div style="color:var(--t4);font-size:16px;margin-left:-2px">›</div>';
-    div.addEventListener('click',function(){ensureMap();if(mobileMap)mobileMap.focus(i,Math.max(2.7,mobileMap.scale()));renderProjectModule(i);document.getElementById('mapProjectModule')?.scrollIntoView({behavior:'smooth',block:'nearest'});});
+    div.addEventListener('click',function(){ensureMap();if(mobileMap)mobileMap.focus(i,Math.max(2.7,mobileMap.scale()));openSheet(i);});
     el.appendChild(div);
   });
 }
@@ -1173,7 +1168,7 @@ function buildProjectSelect(){
     if(sel.value==='')return;
     activeReg='all';buildFilters();buildPubList();
     ensureMap();
-    var idx=Number(sel.value);if(mobileMap)mobileMap.focus(idx,3);renderProjectModule(idx);document.getElementById('mapProjectModule')?.scrollIntoView({behavior:'smooth',block:'nearest'});
+    var idx=Number(sel.value);if(mobileMap)mobileMap.focus(idx,3);openSheet(idx);
   });
 }
 
@@ -1216,7 +1211,7 @@ function renderProjectModule(i){
 }
 
 function openSheet(i){
-  var p=PUBS[i],c=RC[p.region]||'#111';
+  var p=PUBS[i],c=RC[p.region]||'#111',carto=cartographyMeta(p);
   var reliefVals=PUBS.map(function(x){return x.relief;}).filter(finite),maxR=reliefVals.length?Math.max.apply(null,reliefVals):1;
   var pct=finite(p.relief)?Math.max(0,Math.min(100,p.relief/maxR*100)):0;
   var q=[
@@ -1245,8 +1240,12 @@ function openSheet(i){
     '<div style="font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">Relative Relief vs All 30 DTMs</div>'+
     '<div class="sb2"><div class="sbf" style="width:'+pct.toFixed(1)+'%;background:'+c+'"></div></div>'+
     '<div class="scard">'+
+      '<div class="sr"><div class="srl">Map Projection</div><div class="srv">'+carto.projection+'</div></div>'+
+      '<div class="sr"><div class="srl">Datum / Body Model</div><div class="srv">'+carto.body+'</div></div>'+
+      '<div class="sr"><div class="srl">Vertical Datum</div><div class="srv">'+carto.vertical+'</div></div>'+
+      '<div class="sr"><div class="srl">Orientation</div><div class="srv">'+carto.orientation+'</div></div>'+
       '<div class="sr"><div class="srl">Longitude / Latitude</div><div class="srv">'+coordText(p,3)+'</div></div>'+
-      '<div class="sr"><div class="srl">Projected X / Y</div><div class="srv">'+xyText(p)+'</div></div>'+
+      '<div class="sr"><div class="srl">Projected X / Y</div><div class="srv">'+xyText(p)+'<br><span style="color:var(--t3);font-size:9px">'+carto.xy+'</span></div></div>'+
       '<div class="sr"><div class="srl">Mars Latitude Zone</div><div class="srv">'+latZone(p.lat)+'</div></div>'+
       '<div class="sr"><div class="srl">DTM Post</div><div class="srv">'+(finite(p.post)?p.post+' m':'—')+'</div></div>'+
       '<div class="sr"><div class="srl">README Source Images</div><div class="srv">'+p.img.join('<br>')+'</div></div>'+
@@ -1295,7 +1294,7 @@ function initMobileMap(){
   function basePos(p){var lon=((((p.lon%360)+360)%360)+180)%360;return{x:(lon/360*viewport.clientWidth)*st.scale+st.x,y:((90-p.lat)/180*viewport.clientHeight)*st.scale+st.y,xp:lon/360*100,yp:(90-p.lat)/180*100};}
   function makeMarkers(){
     layer.innerHTML=PUBS.map(function(p,i){var lon=((((p.lon%360)+360)%360)+180)%360,x=lon/360*100,y=(90-p.lat)/180*100,c=RC[p.region]||'#111';return '<span class="im-anchor" data-anchor-index="'+i+'" data-region="'+p.region+'" style="left:'+x+'%;top:'+y+'%"></span><button type="button" class="im-marker" data-map-index="'+i+'" data-region="'+p.region+'" aria-label="'+(i+1)+'. '+p.name+'" style="left:'+x+'%;top:'+y+'%;background:'+c+'">'+(i+1)+'</button>';}).join('');
-    layer.querySelectorAll('.im-marker').forEach(function(marker){var i=Number(marker.dataset.mapIndex);marker.addEventListener('pointerdown',function(e){e.stopPropagation();});marker.addEventListener('click',function(e){e.stopPropagation();select(i);renderProjectModule(i);});});
+    layer.querySelectorAll('.im-marker').forEach(function(marker){var i=Number(marker.dataset.mapIndex);marker.addEventListener('pointerdown',function(e){e.stopPropagation();});marker.addEventListener('click',function(e){e.stopPropagation();select(i);openSheet(i);});});
     layoutMarkers();
   }
   function layoutMarkers(){
@@ -1321,7 +1320,7 @@ function initMobileMap(){
     var module=document.getElementById('mapProjectModule');if(module)module.innerHTML='<div class="project-module-empty"><strong>Select any of the 30 HiRISE DTM projects</strong><span>Tap a numbered marker, choose a project above, or tap a project below. This module will update with that project’s cartography, coordinates, MOLA elevation range, DTM sampling, source images, and quality metrics.</span></div>';
     apply();
   }
-  function focus(i,newScale){var p=PUBS[i],lon=((((p.lon%360)+360)%360)+180)%360,w=viewport.clientWidth,h=viewport.clientHeight;if(w<5)return;st.scale=Math.max(1,Math.min(12,newScale||3));st.x=w/2-(lon/360*w)*st.scale;st.y=h/2-((90-p.lat)/180*h)*st.scale;st.tileKey='';apply();select(i);renderProjectModule(i);}
+  function focus(i,newScale){var p=PUBS[i],lon=((((p.lon%360)+360)%360)+180)%360,w=viewport.clientWidth,h=viewport.clientHeight;if(w<5)return;st.scale=Math.max(1,Math.min(12,newScale||3));st.x=w/2-(lon/360*w)*st.scale;st.y=h/2-((90-p.lat)/180*h)*st.scale;st.tileKey='';apply();select(i);}
   function select(i){st.selected=i;layer.querySelectorAll('.im-marker').forEach(function(m){m.classList.toggle('selected',Number(m.dataset.mapIndex)===i);});var sel=document.getElementById('mapProjectSelect');if(sel)sel.value=String(i);}
   function setRegion(r){st.region=r;layer.querySelectorAll('.im-marker,.im-anchor').forEach(function(m){m.classList.toggle('hidden',r!=='all'&&m.dataset.region!==r);});layoutMarkers();}
   function marsFromClient(x,y){var vr=viewport.getBoundingClientRect(),px=x-vr.left,py=y-vr.top,wx=(px-st.x)/st.scale,wy=(py-st.y)/st.scale,displayLon=wx/viewport.clientWidth*360,lat=90-wy/viewport.clientHeight*180;if(displayLon<0||displayLon>360||lat<-90||lat>90)return null;return{lon:(displayLon+180)%360,lat:lat,displayLon:displayLon};}
@@ -1337,7 +1336,7 @@ function initMobileMap(){
   if(resetBtn)resetBtn.addEventListener('click',function(e){e.preventDefault();reset();});
   if('ResizeObserver'in window){new ResizeObserver(function(){if(viewport.clientWidth>5){st.tileKey='';apply();}}).observe(viewport);}
   renderTiles(true);makeMarkers();apply();
-  mobileMap={focus:focus,select:function(i){select(i);renderProjectModule(i);},setRegion:setRegion,reset:reset,refresh:function(){st.tileKey='';apply();},scale:function(){return st.scale;}};return mobileMap;
+  mobileMap={focus:focus,select:select,setRegion:setRegion,reset:reset,refresh:function(){st.tileKey='';apply();},scale:function(){return st.scale;}};return mobileMap;
 }
 
 function ensureMap(){
