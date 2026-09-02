@@ -178,7 +178,7 @@ html,body{height:100%;background:var(--bg);font-family:var(--font);color:var(--t
 .goal-r{font-size:9px;color:rgba(255,255,255,.45);font-family:var(--mono);text-align:right;flex-shrink:0}
 
 
-/* ── HIGH-RES INTERACTIVE MARS MAP · 28 README-VALIDATED DTMs ── */
+/* ── HIGH-RES INTERACTIVE MARS MAP · 30 README-VALIDATED DTMs ── */
 #pg-map .mwrap{margin:10px 14px 0;border-radius:16px;overflow:hidden;box-shadow:var(--sh2);background:#171717;border:1px solid rgba(0,0,0,.08)}
 .im-toolbar{margin:9px 14px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;align-items:center}
 .im-jump{width:100%;min-width:0;height:40px;border:1px solid var(--b1);background:var(--card);border-radius:11px;padding:0 10px;font:11px var(--font);color:var(--t1);box-shadow:var(--sh);outline:none}
@@ -345,11 +345,11 @@ html,body{height:100%;background:var(--bg);font-family:var(--font);color:var(--t
         <div style="font-size:30px;font-weight:700;letter-spacing:-.05em">Mars DTMs</div>
         <div style="font-size:11px;color:var(--t3);margin-top:2px;line-height:1.4">NASA Mars Trek · MOLA + HRSC color hillshade · 200 m/px · areocentric</div>
       </div>
-      <div id="mapCount" style="font-size:11px;font-weight:600;color:var(--t2);font-family:var(--mono);background:var(--card);padding:5px 9px;border-radius:20px;box-shadow:var(--sh);white-space:nowrap">28 DTMs</div>
+      <div id="mapCount" style="font-size:11px;font-weight:600;color:var(--t2);font-family:var(--mono);background:var(--card);padding:5px 9px;border-radius:20px;box-shadow:var(--sh);white-space:nowrap">30 DTMs</div>
     </div>
 
     <div class="im-toolbar">
-      <select class="im-jump" id="mapProjectSelect" aria-label="Jump to any of the 28 DTM projects"></select>
+      <select class="im-jump" id="mapProjectSelect" aria-label="Jump to any of the 30 DTM projects"></select>
       <div class="im-nav">
         <button type="button" class="im-btn" id="mapZoomOut" aria-label="Zoom out">−</button>
         <span class="im-zoom" id="mapZoomRead">1.0×</span>
@@ -359,7 +359,7 @@ html,body{height:100%;background:var(--bg);font-family:var(--font);color:var(--t
     </div>
 
     <div class="mwrap">
-      <div class="im-view" id="mapViewport" aria-label="Interactive high-resolution Mars MOLA and HRSC map with 28 HiRISE DTM projects">
+      <div class="im-view" id="mapViewport" aria-label="Interactive high-resolution Mars MOLA and HRSC map with 30 HiRISE DTM projects">
         <div class="im-scene" id="mapScene">
           <div class="im-tiles" id="mapTiles"></div>
           <svg class="im-grid" viewBox="0 0 360 180" preserveAspectRatio="none" aria-hidden="true">
@@ -859,6 +859,16 @@ var PUBS = [
     url:"https://www.uahirise.org/dtm/ESP_072540_2105", ortho:"https://www.uahirise.org/PDS/EXTRAS/DTM/ESP/ORB_072500_072599/ESP_072540_2105_ESP_072461_2105/ESP_072461_2105_RED_D_01_ORTHO.br.jpg",
     geo:"Utopia Planitia occupies a giant Noachian impact basin in the northern lowlands whose present morphology reflects extensive sedimentary and volcanic infilling as well as later tectonic modification. Mesas and other remnant relief within the plains preserve local stratigraphic and structural information that helps constrain the basin's long post-impact resurfacing history.",
     cite:"Thomson, B. J., & Head, J. W. (2001). Utopia Basin, Mars: Characterization of topography and morphology and assessment of the origin and evolution of basin internal structure. <em>Journal of Geophysical Research: Planets</em>, <em>106</em>(E10), 23209–23230. https://doi.org/10.1029/2000JE001355" }
+,
+  { name:"Guilled_Crater_2226E_438S", dstr:"Date not in README", date:"", lon:222.623, lat:-43.888, img:["ESP_012904_1360","ESP_012759_1360"], min:1122.11, max:2242.44, relief:1120.33, post:2, rms_px:0.29163, rms_x:0.22408, rms_y:0.018333, rms_z:3.1482, rms_m:null, mola_d:-1.030, mola_s:10.706, credit:true, region:"High-Latitude",
+    url:"https://www.uahirise.org/dtm/ESP_012904_1360", ortho:"https://www.uahirise.org/PDS/EXTRAS/DTM/ESP/ORB_012900_012999/ESP_012904_1360_ESP_012759_1360/ESP_012759_1360_RED_D_01_ORTHO.br.jpg",
+    geo:"This southern mid-latitude crater contains well-developed gullies on steep interior slopes. Martian gullies commonly consist of alcoves, channels, and depositional aprons, and repeat HiRISE imaging has shown that present-day modification at many mid- and high-latitude sites is strongly associated with seasonal carbon-dioxide frost processes.",
+    cite:"Dundas, C. M., Diniega, S., Hansen, C. J., Byrne, S., & McEwen, A. S. (2012). Seasonal activity and morphological changes in Martian gullies. <em>Icarus</em>, <em>220</em>(1), 124–143. https://doi.org/10.1016/j.icarus.2012.04.005" },
+
+  { name:"USGS_Dune_2308E_692S", dstr:"Date not in README", date:"", lon:230.8, lat:-69.2, img:["ESP_032024_1105","ESP_031945_1105"], min:622.60, max:1122.45, relief:499.85, post:1, rms_px:0.22078, rms_x:0.08651, rms_y:0.11159, rms_z:10.503, rms_m:null, mola_d:-4.83, mola_s:83.10, credit:true, region:"South Polar",
+    url:"https://www.uahirise.org/dtm/ESP_032024_1105", ortho:"https://www.uahirise.org/PDS/EXTRAS/DTM/ESP/ORB_032000_032099/ESP_032024_1105_ESP_031945_1105/ESP_032024_1105_RED_C_01_ORTHO.br.jpg",
+    geo:"This high-southern-latitude dune field provides topographic control on dune morphology in a terrain affected by strong seasonal carbon-dioxide frost cycles. Repeat HiRISE observations of polar and subpolar dunes show that frost-related mass movement can modify dune slopes and gullies on present-day Mars.",
+    cite:"Diniega, S., Byrne, S., Bridges, N. T., Dundas, C. M., & McEwen, A. S. (2010). Seasonality of present-day Martian dune-gully activity. <em>Geology</em>, <em>38</em>(11), 1047–1050. https://doi.org/10.1130/G31287.1" }
 
 ];
 
@@ -891,7 +901,7 @@ function buildFilters(){
     var v=r==='All'?'all':r,on=activeReg===v,c=r==='All'?'#111':RC[r];
     var div=document.createElement('div');div.className='rp'+(on?' active':'');
     if(on)div.style.cssText='background:'+c+';color:#fff';
-    div.textContent=r+(r==='All'?' · 28':'');
+    div.textContent=r+(r==='All'?' · 30':'');
     div.addEventListener('click',function(){setReg(v);});el.appendChild(div);
   });
 }
@@ -920,7 +930,7 @@ function buildPubList(){
 
 function buildProjectSelect(){
   var sel=document.getElementById('mapProjectSelect');if(!sel)return;
-  sel.innerHTML='<option value="">Jump to any of the 28 projects…</option>'+PUBS.map(function(p,i){return '<option value="'+i+'">'+String(i+1).padStart(2,'0')+' · '+p.name+'</option>';}).join('');
+  sel.innerHTML='<option value="">Jump to any of the 30 projects…</option>'+PUBS.map(function(p,i){return '<option value="'+i+'">'+String(i+1).padStart(2,'0')+' · '+p.name+'</option>';}).join('');
   sel.addEventListener('change',function(){
     if(sel.value==='')return;
     activeReg='all';buildFilters();buildPubList();
@@ -956,7 +966,7 @@ function openSheet(i){
       '<div class="smt"><div class="smv" style="font-size:13px">'+fmtElev(p.min).replace(' m','')+'</div><div class="sml">Valid Min m</div></div>'+
       '<div class="smt"><div class="smv" style="font-size:13px">'+fmtElev(p.max).replace(' m','')+'</div><div class="sml">Valid Max m</div></div>'+
       '<div class="smt" style="background:'+c+'12;border:1px solid '+c+'33"><div class="smv" style="font-size:15px;color:'+c+'">'+(finite(p.relief)?p.relief.toFixed(2):'—')+'</div><div class="sml" style="color:'+c+'99">Relief m</div></div></div>'+
-    '<div style="font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">Relative Relief vs All 28 DTMs</div>'+
+    '<div style="font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">Relative Relief vs All 30 DTMs</div>'+
     '<div class="sb2"><div class="sbf" style="width:'+pct.toFixed(1)+'%;background:'+c+'"></div></div>'+
     '<div class="scard">'+
       '<div class="sr"><div class="srl">Coordinates</div><div class="srv">'+coordText(p,3)+'</div></div>'+
