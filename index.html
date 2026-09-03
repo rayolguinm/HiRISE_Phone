@@ -493,10 +493,7 @@ html{scroll-behavior:smooth}
         <div class="im-axis-x" aria-hidden="true"><span>180°E</span><span>270°E</span><span>0° / 360°E</span><span>90°E</span><span>180°E</span></div>
         <div class="im-axis-y" aria-hidden="true"><span>90°N</span><span>45°N</span><span>0°</span><span>45°S</span><span>90°S</span></div>
         <div class="im-north" aria-label="North is up"><span>N</span><span class="shaft"></span></div>
-        <div class="im-coords" id="mapCoords">Cursor: longitude · latitude · projected X/Y</div>
-        <div class="im-dataset">MOLA + HRSC · 200 m/px</div>
       </div>
-      <div class="im-help"><span>Drag · pinch · tap project → ORTHO details</span><span>north ↑ · east →</span></div>
     </div>
 
     <div class="project-module" id="mapProjectModule" aria-live="polite" style="display:none"></div>
@@ -1263,7 +1260,7 @@ document.getElementById('sov').addEventListener('click',closeSheet);
 
 function initMobileMap(){
   if(mobileMap)return mobileMap;
-  var viewport=document.getElementById('mapViewport'),scene=document.getElementById('mapScene'),tiles=document.getElementById('mapTiles'),layer=document.getElementById('mapMarkerLayer'),coords=document.getElementById('mapCoords'),zoomRead=document.getElementById('mapZoomRead');
+  var viewport=document.getElementById('mapViewport'),scene=document.getElementById('mapScene'),tiles=document.getElementById('mapTiles'),layer=document.getElementById('mapMarkerLayer'),coords=null,zoomRead=document.getElementById('mapZoomRead');
   if(!viewport||!scene||!tiles||!layer)return null;
   var st={scale:1,x:0,y:0,region:'all',selected:null,tileKey:'',dragging:false,pointers:new Map(),pinch:null};
   var hiBase='https://trek.nasa.gov/tiles/Mars/EQ/Mars_MOLA_blend200ppx_HRSC_ClrShade_clon0dd_200mpp_lzw/1.0.0/default/default028mm/';
