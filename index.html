@@ -312,6 +312,38 @@ html{scroll-behavior:smooth}
 .rv-about-card .ttl{font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .rv-about-card p{font-size:12px;color:var(--t2);line-height:1.72;margin:0 0 10px}
 
+/* ── DATASET ANALYTICS (mobile) ── */
+.da-m{padding:0 14px}
+.da-panel{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;margin-bottom:10px}
+.da-head{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-bottom:.5px solid var(--b1)}
+.da-title{font-size:11px;font-weight:700;color:var(--t1);letter-spacing:.03em;text-transform:uppercase;line-height:1.35}
+.da-meta{font-size:9.5px;color:var(--t3);font-family:var(--mono)}
+.da-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5px;background:var(--b1)}
+.da-kpi{background:var(--card);padding:11px 12px;min-width:0}
+.da-val{font-size:19px;font-weight:700;letter-spacing:-.03em;color:var(--t1);line-height:1.15;overflow-wrap:anywhere}
+.da-val small{font-size:10px;font-weight:600;color:var(--t3);margin-left:2px;letter-spacing:0}
+.da-lbl{font-size:8.5px;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-top:4px;font-weight:600}
+.da-sub{font-size:10px;color:var(--t2);margin-top:3px;line-height:1.4;overflow-wrap:anywhere}
+.da-rows{padding:4px 14px 8px;border-top:.5px solid var(--b1)}
+.da-row{display:grid;grid-template-columns:1fr auto auto;gap:4px 10px;align-items:center;padding:8px 0;border-bottom:.5px solid var(--b2);font-size:11px;color:var(--t1)}
+.da-row:last-child{border-bottom:0}
+.da-row-head{display:none}
+.da-row>span:first-child{min-width:0;overflow-wrap:anywhere}
+.da-bar{grid-column:1/-1;order:4;height:4px;background:var(--card2);border-radius:2px;overflow:hidden}
+.da-bar i{display:block;height:100%}
+.da-row .n{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.da-row .m{text-align:right;color:var(--t3);font-family:var(--mono);font-size:10px;white-space:nowrap}
+.da-chip{display:inline-flex;align-items:center;gap:4px;font-size:9px;color:var(--t2);border:.5px solid var(--b1);border-radius:999px;padding:1px 6px;margin-left:4px;white-space:nowrap;font-weight:500;letter-spacing:0;text-transform:none;vertical-align:1px}
+.da-chip i{width:6px;height:6px;border-radius:50%;display:inline-block}
+.pmeta+div .da-chip{margin-left:0}
+.da-note{padding:9px 14px 12px;border-top:.5px solid var(--b1);font-size:10px;color:var(--t3);line-height:1.5}
+.da-cite{font-size:.62em;font-weight:600;margin-left:3px;letter-spacing:0;text-transform:none}.da-cite a{color:var(--red);text-decoration:none}
+.da-refs{margin:0;padding:10px 14px 12px 30px;font-size:10px;color:var(--t2);line-height:1.55}
+.da-refs li{margin-bottom:6px;overflow-wrap:anywhere}.da-refs a{color:var(--navy)}
+.advh{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin:10px 0 3px}
+.advr{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:.5px solid var(--b2);font-size:11px;color:var(--t1)}
+.advr span:last-child{color:var(--t3);font-family:var(--mono);font-size:9.5px;text-align:right}
+
 </style>
 </head>
 <body>
@@ -346,7 +378,7 @@ html{scroll-behavior:smooth}
     <div class="kgrid">
       <div class="kbox acc"><div class="kn">2,350<span style="font-size:14px">%</span></div><div class="kl">Efficiency</div><div class="ks">throughput gain</div></div>
       <div class="kbox"><div class="kn">55</div><div class="kl">DTMs</div><div class="ks">NASA std.</div></div>
-      <div class="kbox"><div class="kn sm">1,650</div><div class="kl">HiRISE Hrs</div><div class="ks">2025&#8211;26</div></div>
+      <div class="kbox"><div class="kn sm">1,750</div><div class="kl">HiRISE Hrs</div><div class="ks">2025&#8211;26</div></div>
       <div class="kbox"><div class="kn">300</div><div class="kl">Europa Hrs</div><div class="ks">Feb&#8211;Sep 2026</div></div>
       <div class="kbox"><div class="kn sm">$15K+</div><div class="kl">Grant</div><div class="ks">Lab infra.</div></div>
       <div class="kbox"><div class="kn">2</div><div class="kl">Missions</div><div class="ks">MRO · EC</div></div>
@@ -355,12 +387,12 @@ html{scroll-behavior:smooth}
     <div class="card" style="margin-bottom:10px">
       <div class="cb" style="display:flex;align-items:flex-start;gap:13px;padding:15px 16px">
         <div style="flex-shrink:0;text-align:center;min-width:70px">
-          <div style="font-size:26px;font-weight:700;letter-spacing:-.04em;color:var(--navy);line-height:1">1,308</div>
+          <div style="font-size:26px;font-weight:700;letter-spacing:-.04em;color:var(--navy);line-height:1">1,338</div>
           <div style="font-size:8.5px;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-top:4px">HiRISE DTM<br>Projects</div>
         </div>
         <div style="flex:1;min-width:0">
           <div style="font-size:9px;color:var(--red);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:4px">Mars XR System Architecture</div>
-          <div style="font-size:12px;color:var(--t2);line-height:1.6">Processed and prepared 1,308 HiRISE Digital Terrain Model projects for VR and AR visualization, creating a scalable Mars terrain library for immersive exploration, scientific interpretation, and mission&#8211;aligned research applications.</div>
+          <div style="font-size:12px;color:var(--t2);line-height:1.6">Processed and prepared 1,338 HiRISE Digital Terrain Model projects for VR and AR visualization, creating a scalable Mars terrain library for immersive exploration, scientific interpretation, and mission&#8211;aligned research applications.</div>
         </div>
       </div>
     </div>
@@ -395,8 +427,8 @@ html{scroll-behavior:smooth}
         <div id="mexp2"><div class="rv-viz-kicker">Processing</div><h4>SOCET SET / NGATE photogrammetric processing</h4><p>Least-squares image correlation extracts terrain geometry and supports DTM generation.</p><div class="rv-viz-statgrid"><div class="rv-viz-stat"><div class="lbl">Algorithm</div><div class="val">SOCET SET NGATE</div></div><div class="rv-viz-stat"><div class="lbl">Output</div><div class="val">DTM + orthoimage</div></div></div></div>
         <div id="mexp3"><div class="rv-viz-kicker">Validation</div><h4>Bundle-adjustment residuals & MOLA control</h4><p>README-derived RMS and MOLA statistics are used to audit quality.</p><div class="rv-viz-statgrid"><div class="rv-viz-stat"><div class="lbl">Residuals</div><div class="val">RMS x · y · z</div></div><div class="rv-viz-stat"><div class="lbl">Reference</div><div class="val">MOLA surface</div></div></div></div>
         <div id="mexp4"><div class="rv-viz-kicker">Production</div><h4>Validated DTM product portfolio</h4><p>36 README-audited projects are shown in the portfolio, within a record of 55 delivered DTMs. The October 6, 2026 HiRISE release added six: Maja Valles, Ares Vallis flute casts, Chryse Planitia mounds, the Lunae Mensa scarp crater, Bernard Crater floor channels, and a northern terraced crater.</p><div class="rv-viz-statgrid"><div class="rv-viz-stat"><div class="lbl">Showcased</div><div class="val">36 projects</div></div><div class="rv-viz-stat"><div class="lbl">Produced</div><div class="val">55 DTMs</div></div><div class="rv-viz-stat"><div class="lbl">Latest release</div><div class="val">6 DTMs · Oct 6, 2026</div></div></div></div>
-        <div id="mexp5"><div class="rv-viz-kicker">Multiplanetary XR terrain system</div><h4>Mars + Moon immersive terrain libraries</h4><p>The XR architecture organizes 1,308 HiRISE Mars DTM projects and 660 LRO NAC lunar DTM projects for immersive analysis, VR, and AR exploration.</p><div class="rv-viz-statgrid"><div class="rv-viz-stat"><div class="lbl">HiRISE / Mars</div><div class="val">1,308 projects</div></div><div class="rv-viz-stat"><div class="lbl">LRO NAC / Moon</div><div class="val">660 projects</div></div><div class="rv-viz-stat"><div class="lbl">Combined</div><div class="val">1,968 projects</div></div><div class="rv-viz-stat"><div class="lbl">Modes</div><div class="val">VR · AR · WebXR</div></div></div></div>
-        <div id="mexp6"><div class="rv-viz-kicker">Mission science operations</div><h4>Mission science operations support</h4><p>The workflow supports MRO science operations and completed Europa Clipper roughness modeling work.</p><div class="rv-viz-statgrid"><div class="rv-viz-stat"><div class="lbl">HiRISE hrs</div><div class="val">1,650</div></div><div class="rv-viz-stat"><div class="lbl">Europa hrs</div><div class="val">300 completed</div></div></div></div>
+        <div id="mexp5"><div class="rv-viz-kicker">Multiplanetary XR terrain system</div><h4>Mars + Moon immersive terrain libraries</h4><p>The XR architecture organizes 1,338 HiRISE Mars DTM projects and 660 LRO NAC lunar DTM projects for immersive analysis, VR, and AR exploration.</p><div class="rv-viz-statgrid"><div class="rv-viz-stat"><div class="lbl">HiRISE / Mars</div><div class="val">1,338 projects</div></div><div class="rv-viz-stat"><div class="lbl">LRO NAC / Moon</div><div class="val">660 projects</div></div><div class="rv-viz-stat"><div class="lbl">Combined</div><div class="val">1,998 projects</div></div><div class="rv-viz-stat"><div class="lbl">Modes</div><div class="val">VR · AR · WebXR</div></div></div></div>
+        <div id="mexp6"><div class="rv-viz-kicker">Mission science operations</div><h4>Mission science operations support</h4><p>The workflow supports MRO science operations and completed Europa Clipper roughness modeling work.</p><div class="rv-viz-statgrid"><div class="rv-viz-stat"><div class="lbl">HiRISE hrs</div><div class="val">1,750</div></div><div class="rv-viz-stat"><div class="lbl">Europa hrs</div><div class="val">300 completed</div></div></div></div>
       </div>
     </div>
 
@@ -513,6 +545,9 @@ html{scroll-behavior:smooth}
 
     <div class="rf" id="regionFilters"></div>
     <div class="plist" id="pubListItems"></div>
+    <div class="sec" id="analyticsSection">Dataset Analytics</div>
+    <div style="padding:0 18px 8px;font-size:11px;color:var(--t3);line-height:1.45">Planetary science · planetary geology · change detection, computed from the 36 DTM projects.</div>
+    <div id="datasetAnalytics" class="da-m"></div>
     <div style="height:14px"></div>
   </div>
 
@@ -546,11 +581,6 @@ html{scroll-behavior:smooth}
       <div class="cb">
         <div class="ct">Photogrammetry Technician — HiRISE &amp; CTX</div>
         <div class="cs">LPL · HiRISE PI: Shane Byrne · CTX PI: M.C. Malin · MRO</div>
-        <div class="tg3">
-          <div class="t"><div class="tl">Efficiency</div><div class="tv lg">2,350%</div></div>
-          <div class="t"><div class="tl">DTMs</div><div class="tv lg">55</div></div>
-          <div class="t"><div class="tl">HiRISE Hrs</div><div class="tv">1,650</div></div>
-        </div>
         <div class="bars">
           <div class="br"><div class="bl">Photogrammetric Training</div><div class="bt"><div class="bf" style="width:95%"></div></div><div class="bv">&gt;35h/wk</div></div>
           <div class="br"><div class="bl">DTM Throughput</div><div class="bt"><div class="bf" style="width:100%"></div></div><div class="bv">+2,350%</div></div>
@@ -684,18 +714,8 @@ html{scroll-behavior:smooth}
       <div class="cb">
         <div class="ct">B.S. Electrical Engineering (EE) · Current / In Progress</div>
         <div class="cs" style="margin-bottom:8px">Focus: <strong>Electrical Engineering</strong></div>
-        <div class="goal">
-          <div>
-            <div class="goal-l">Future Graduate Goal</div>
-            <div class="goal-v">Accelerated M.S. Electrical Engineering</div>
-            <div class="goal-s">Planned · Planetary Science Instrumentation Focus</div>
-          </div>
-          <div class="goal-r">UArizona<br>EE Dept.</div>
-        </div>
         <div class="tg">
-          <div class="t"><div class="tl">Planned Minor</div><div class="tv sm">Planetary Science</div><div class="ts">Pathway in progress</div></div>
-          <div class="t"><div class="tl">Planned Minor</div><div class="tv sm">Mathematics</div><div class="ts">Pathway in progress</div></div>
-          <div class="t"><div class="tl">Planned Minor</div><div class="tv sm">Computer Eng.</div><div class="ts">Pathway in progress</div></div>
+          <div class="t"><div class="tl">Standing</div><div class="tv sm">Sophomore</div><div class="ts">B.S. EE in progress</div></div>
           <div class="t"><div class="tl">Honors</div><div class="tv sm">Dean&#39;s List &#215;3</div><div class="ts">3 terms</div></div>
         </div>
         <div class="tags"><span class="tag p">IEEE</span><span class="tag p">AIAA</span><span class="tag p">ACM</span><span class="tag">Wildcat Rocket EC</span></div>
@@ -722,38 +742,46 @@ html{scroll-behavior:smooth}
     <!-- RESEARCH ADVISORS -->
     <div class="sec">Research Advisors</div>
     <div class="card">
-      <div class="ch dk"><div class="ch-l"><span class="ch-id">Principal &amp; Co-Supervisor</span></div></div>
+      <div class="ch dk"><div class="ch-l"><span class="ch-id">Principal Supervisor</span></div><span class="ch-d">LPL · UArizona</span></div>
       <div class="cb">
-        <div class="adv">
+        <div class="adv" style="border:none">
           <div class="aav">SS</div>
-          <div style="flex:1">
+          <div style="flex:1;min-width:0">
             <div class="an">Dr. Sarah S. Sutton</div>
-            <div class="ar">Photogrammetry Program Lead · 19 yrs LPL/UArizona<br>Ph.D. UArizona 2022</div>
-            <div style="font-size:10.5px;color:var(--t2);margin-top:3px;line-height:1.5">Stereophotogrammetry, DTM production, active surface change detection, geologic mapping · Mars · Moon · Europa · Io</div>
-            <div class="ao" style="margin-top:4px">ssutton@lpl.arizona.edu · ORCID 0000-0003-4558-9712</div>
-            <div class="tags" style="margin-top:6px">
-              <span class="tag p" style="font-size:9px">HiRISE Co-I</span>
-              <span class="tag p" style="font-size:9px">Task Lead EC</span>
-              <span class="tag" style="font-size:9px">TGO/CaSSIS</span>
-              <span class="tag" style="font-size:9px">Europa Clipper EIS</span>
-              <span class="tag" style="font-size:9px">OSIRIS-APEX</span>
-              <span class="tag" style="font-size:9px">LRO/LROC</span>
-              <span class="tag" style="font-size:9px">Pellas-Ryder 2022</span>
-              <span class="tag" style="font-size:9px">NSF GRFP</span>
+            <div class="ar">Photogrammetry Program Lead, HiRISE · Researcher/Scientist · PTYS/LPL</div>
+            <div class="tg" style="margin-top:8px">
+              <div class="t"><div class="tl">Doctorate</div><div class="tv sm">Ph.D. · 2022</div><div class="ts">UArizona</div></div>
+              <div class="t"><div class="tl">Tenure at LPL</div><div class="tv sm">20 years</div><div class="ts">LPL</div></div>
             </div>
+            <div class="advh">Current missions</div>
+            <div class="advr"><span style="font-weight:600">EMILIA-3D</span><span>Principal Investigator</span></div><div class="advr"><span style="font-weight:600">MRO / HiRISE</span><span>Co-Investigator</span></div><div class="advr"><span style="font-weight:500">OSIRIS-APEX</span><span>Collaborator</span></div><div class="advr"><span style="font-weight:500">TGO / CaSSIS</span><span>Science Operations</span></div><div class="advr"><span style="font-weight:500">Europa Clipper / EIS</span><span>Professional Affiliate</span></div><div class="advr"><span style="font-weight:500">LRO / LROC</span><span>Science Operations</span></div>
+            <div class="advh">Former spacecraft involvement</div>
+            <div class="advr"><span style="font-weight:500">Io Volcano Observer</span><span>Phase A · Co-I</span></div><div class="advr"><span style="font-weight:500">OSIRIS-REx / OCAMS</span><span>Collaborator</span></div>
+            <div class="advh">Research areas</div>
+            <div class="tags"><span class="tag p" style="font-size:9px">Stereophotogrammetry</span><span class="tag p" style="font-size:9px">Digital terrain modeling</span><span class="tag p" style="font-size:9px">Change detection</span><span class="tag" style="font-size:9px">Surface processes</span><span class="tag" style="font-size:9px">Volcanology</span><span class="tag" style="font-size:9px">Aeolian processes</span><span class="tag" style="font-size:9px">Geomorphology</span><span class="tag" style="font-size:9px">Geologic mapping</span><span class="tag" style="font-size:9px">Remote sensing</span><span class="tag" style="font-size:9px">Field geology</span><span class="tag" style="font-size:9px">Planetary analogs</span><span class="tag" style="font-size:9px">Image processing</span><span class="tag" style="font-size:9px">Optical calibration</span><span class="tag" style="font-size:9px">Jitter correction</span><span class="tag" style="font-size:9px">Signal processing</span></div>
+            <div style="font-size:10px;color:var(--t3);margin-top:6px">Bodies studied: Mars, Earth, the Moon, Europa, and Io.</div>
           </div>
         </div>
-        <div class="adv">
+      </div>
+    </div>
+    <div class="card">
+      <div class="ch dk"><div class="ch-l"><span class="ch-id">HiRISE Co-Investigator</span></div><span class="ch-d">PSI</span></div>
+      <div class="cb">
+        <div class="adv" style="border:none">
           <div class="aav">MC</div>
-          <div style="flex:1">
+          <div style="flex:1;min-width:0">
             <div class="an">Dr. Matthew Chojnacki</div>
-            <div class="ar">Research Scientist · HiRISE Co-I · PSI<br>HiROC Lab Co-Manager · Aeolian STL</div>
-            <div class="ao">Planetary Science Institute · Lakewood, CO</div>
-            <div class="tags" style="margin-top:6px">
-              <span class="tag p" style="font-size:9px">HiRISE Co-I</span>
-              <span class="tag" style="font-size:9px">OSIRIS-REx</span>
-              <span class="tag" style="font-size:9px">CTX DTMs</span>
+            <div class="ar">Senior Scientist · Planetary Science Institute · Co-Manager, HiROC Photogrammetry Lab</div>
+            <div class="tg" style="margin-top:8px">
+              <div class="t"><div class="tl">Targets</div><div class="tv sm">Mars · Earth · Asteroids</div><div class="ts">MRO Co-I since 2023</div></div>
+              <div class="t"><div class="tl">Field</div><div class="tv sm">Planetary geologist</div><div class="ts">10+ yrs on Mars</div></div>
             </div>
+            <div class="advh">Missions &amp; roles</div>
+            <div class="advr"><span style="font-weight:600">MRO / HiRISE</span><span>Co-Investigator</span></div><div class="advr"><span style="font-weight:600">HiROC Photogrammetry Lab</span><span>Co-Manager</span></div><div class="advr"><span style="font-weight:500">HiRISE operations</span><span>Targeting · science</span></div><div class="advr"><span style="font-weight:500">OSIRIS-REx</span><span>Led stereo DTM production</span></div><div class="advr"><span style="font-weight:500">MER</span><span>Operations and science</span></div><div class="advr"><span style="font-weight:500">Mars Odyssey</span><span>Mission experience</span></div>
+            <div class="advh">Research areas</div>
+            <div class="tags"><span class="tag p" style="font-size:9px">Aeolian transport &amp; dunes</span><span class="tag p" style="font-size:9px">Stereo photogrammetry DTMs</span><span class="tag" style="font-size:9px">Thermophysical &amp; spectral properties</span><span class="tag" style="font-size:9px">Aqueous alteration</span><span class="tag" style="font-size:9px">Terrestrial analogs</span><span class="tag" style="font-size:9px">Evolution of Mars</span></div>
+            <div class="advh">Techniques &amp; disciplines</div>
+            <div class="tags"><span class="tag" style="font-size:9px">Geology</span><span class="tag" style="font-size:9px">Geomorphology</span><span class="tag" style="font-size:9px">Mapping</span><span class="tag" style="font-size:9px">Remote sensing</span><span class="tag" style="font-size:9px">Spectroscopy</span><span class="tag" style="font-size:9px">Thermal emission spectroscopy</span></div>
           </div>
         </div>
       </div>
@@ -855,6 +883,7 @@ html{scroll-behavior:smooth}
       <div class="sk"><span class="skn">Italian</span><span style="font-size:11px;color:var(--t3);font-weight:500">Professional</span></div>
       <div class="sk"><span class="skn">French</span><span style="font-size:11px;color:var(--t3);font-weight:500">Conversational</span></div>
     </div></div>
+    <div style="padding:14px 18px 0;font-size:10px;color:var(--t3);font-family:var(--mono);text-align:center">Author: Raymundo &quot;R@y&quot; Olguin</div>
     <div style="height:14px"></div>
   </div>
 
@@ -1193,7 +1222,7 @@ function buildPubList(){
     var div=document.createElement('button');div.type='button';div.className='pli';div.setAttribute('aria-label','Open '+String(i+1).padStart(2,'0')+' '+p.name);
     div.innerHTML='<div class="pdot" style="background:'+c+'">'+(i+1)+'</div>'+
       '<div style="flex:1;min-width:0"><div class="pname" style="overflow-wrap:anywhere">'+p.name+'</div>'+
-      '<div class="pmeta">'+coordText(p,1)+' · '+p.dstr+(finite(p.post)?' · '+p.post+' m post':'')+'</div></div>'+
+      '<div class="pmeta">'+coordText(p,1)+' · '+p.dstr+(finite(p.post)?' · '+p.post+' m post':'')+'</div><div style="margin-top:3px">'+geoChip(p)+'</div></div>'+
       '<div style="text-align:right;flex-shrink:0"><div class="prel">'+(finite(p.relief)?p.relief.toFixed(0):'—')+'<span style="font-size:9px;color:var(--t3)"> m</span></div><div style="font-size:9px;color:var(--t3)">relief</div></div>'+
       '<div style="color:var(--t4);font-size:16px;margin-left:-2px">›</div>';
     div.addEventListener('click',function(){ensureMap();if(mobileMap)mobileMap.focus(i,Math.max(2.7,mobileMap.scale()));openSheet(i);});
@@ -1397,7 +1426,195 @@ for(var ni=0;ni<niEls.length;ni++)(function(el){
   el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activateNav();}});
 })(niEls[ni]);
 
-buildProjectSelect();buildFilters();buildPubList();
+// ── DATASET ANALYTICS (Raymundo "R@y" Olguin) ──
+const GEO_CLASSES = {
+  'Polar & Ice':            {c:'#0ea5e9', d:'Layered polar deposits, CO2 and H2O ice'},
+  'Periglacial & Glacial':  {c:'#1d4ed8', d:'Mid-latitude ground ice, debris-covered glaciers'},
+  'Fluvial & Outflow':      {c:'#0f766e', d:'Valley networks, outflow channels, flood scour'},
+  'Chaos & Tectonic':       {c:'#b45309', d:'Collapse terrain, pit chains, extension'},
+  'Sedimentary & Aeolian':  {c:'#a16207', d:'Layered deposits, yardangs, dunes, mounds'},
+  'Volcanic':               {c:'#AB0520', d:'Shield volcanoes, calderas, cone fields'},
+  'Highland & Impact':      {c:'#57534e', d:'Noachian crust, cratered highlands'},
+  'Gullies & Mass Wasting': {c:'#7c3aed', d:'Alcove, channel, and apron slope systems'}
+};
+const GEO_BY_NAME = {
+  'South_Polar_Deposits_1416E_871S':'Polar & Ice',
+  'South_Polar_Deposits_2180E_887S':'Polar & Ice',
+  'North_Polar_Layered_Deposits_Bench_1655E_852N':'Polar & Ice',
+  'Cavil_Angusti_South_Polar_2834E_765S':'Polar & Ice',
+  'High_Latitude_Exposure_1050E_875N':'Polar & Ice',
+  'Arcadia_Planitia_1975E_406N':'Periglacial & Glacial',
+  'Phlegra_Montes_Valley_1629E_385N':'Periglacial & Glacial',
+  'Brain_Terrain_3093E_436N':'Periglacial & Glacial',
+  'Spacex_Starship_Arcadia_1901E_386N':'Periglacial & Glacial',
+  'Protonilus_Mensae_Ridges_0478E_405N':'Periglacial & Glacial',
+  'Terraced_Crater_2464E_529N':'Periglacial & Glacial',
+  'Coogoon_Valles_3357E_170N':'Fluvial & Outflow',
+  'Argyre_Planitia_Valley_3348E_297S':'Fluvial & Outflow',
+  'Landon_Valles_basin_3304E_195S':'Fluvial & Outflow',
+  'Bernard_Crater_Channels_2061E_245S':'Fluvial & Outflow',
+  'Maja_Valles_3059E_177N':'Fluvial & Outflow',
+  'Crater_Adjacent_Lunae_Mensa_2984E_240N':'Fluvial & Outflow',
+  'Flute_Casts_Ares_Vallis_3297E_159N':'Fluvial & Outflow',
+  'Aram_Chaos_3393E_293N':'Chaos & Tectonic',
+  'Chaos_Terrain_3195E_168S':'Chaos & Tectonic',
+  'Gorgonum_Chaos_1881E_369S':'Chaos & Tectonic',
+  'Pits_Sinai_Planum_2710E_089S':'Chaos & Tectonic',
+  'Aeolis_Planum_1546E_493S':'Sedimentary & Aeolian',
+  'Pasteur_Crater_2440E_192N':'Sedimentary & Aeolian',
+  'Hebes_Mensa_deposit_2848E_013S':'Sedimentary & Aeolian',
+  'Mesa_Utopia_Planitia_0892E_301N':'Sedimentary & Aeolian',
+  'USGS_Dune_2308E_692S':'Sedimentary & Aeolian',
+  'Small_Mounds_Chryse_Planitia_3227E_193N':'Sedimentary & Aeolian',
+  'Olympus_Mons_Systems_2330E_175N':'Volcanic',
+  'Uranius_Mons_Crater_2710E_278N':'Volcanic',
+  'Phlegra_Dorsa_Cone_Field_1743E_285N':'Volcanic',
+  'Oxia_Colles_3317E_188N':'Highland & Impact',
+  'Noachis_Terra_Craters_3524E_3510S':'Highland & Impact',
+  'Terra_Sirenum_2161E_468S':'Highland & Impact',
+  'Gullies_Tempe_Terra_4905E_304N':'Gullies & Mass Wasting',
+  'Guilled_Crater_2226E_438S':'Gullies & Mass Wasting'
+};
+// Sites with documented present-day surface activity (seasonal frost, gully, dune, polar scarp change)
+const ACTIVE_SURFACE = new Set([
+  'South_Polar_Deposits_1416E_871S','South_Polar_Deposits_2180E_887S',
+  'North_Polar_Layered_Deposits_Bench_1655E_852N','Cavil_Angusti_South_Polar_2834E_765S',
+  'High_Latitude_Exposure_1050E_875N','Gullies_Tempe_Terra_4905E_304N',
+  'Guilled_Crater_2226E_438S','USGS_Dune_2308E_692S'
+]);
+const MRO_ORBITS_PER_DAY = 1440 / 112;   // ~112 min MRO orbital period
+const MARS_YEAR_DAYS = 687;
+
+
+// Peer-reviewed references backing the analytics panels
+const DA_REFS = [
+ {id:'mcewen2007', t:'McEwen, A. S., et al. (2007). Mars Reconnaissance Orbiter\'s High Resolution Imaging Science Experiment (HiRISE). <em>Journal of Geophysical Research: Planets</em>, 112, E05S02.', doi:'10.1029/2005JE002605'},
+ {id:'kirk2008', t:'Kirk, R. L., et al. (2008). Ultrahigh resolution topographic mapping of Mars with MRO HiRISE stereo images: Meter-scale slopes of candidate Phoenix landing sites. <em>Journal of Geophysical Research: Planets</em>, 113, E00A24.', doi:'10.1029/2007JE003000'},
+ {id:'smith2001', t:'Smith, D. E., et al. (2001). Mars Orbiter Laser Altimeter: Experiment summary after the first year of global mapping of Mars. <em>Journal of Geophysical Research: Planets</em>, 106(E10), 23689 to 23722.', doi:'10.1029/2000JE001364'},
+ {id:'zurek2007', t:'Zurek, R. W., &amp; Smrekar, S. E. (2007). An overview of the Mars Reconnaissance Orbiter (MRO) science mission. <em>Journal of Geophysical Research: Planets</em>, 112, E05S01.', doi:'10.1029/2006JE002701'},
+ {id:'tanaka2014', t:'Tanaka, K. L., et al. (2014). Geologic map of Mars. <em>U.S. Geological Survey Scientific Investigations Map</em> 3292.', doi:'10.3133/sim3292'},
+ {id:'byrne2009', t:'Byrne, S. (2009). The polar deposits of Mars. <em>Annual Review of Earth and Planetary Sciences</em>, 37, 535 to 560.', doi:'10.1146/annurev.earth.031208.100101'},
+ {id:'holt2008', t:'Holt, J. W., et al. (2008). Radar sounding evidence for buried glaciers in the southern mid-latitudes of Mars. <em>Science</em>, 322(5905), 1235 to 1238.', doi:'10.1126/science.1164246'},
+ {id:'bramson2015', t:'Bramson, A. M., Byrne, S., Putzig, N. E., Sutton, S., Plaut, J. J., Brothers, T. C., &amp; Holt, J. W. (2015). Widespread excess ice in Arcadia Planitia, Mars. <em>Geophysical Research Letters</em>, 42(16), 6566 to 6574.', doi:'10.1002/2015GL064844'},
+ {id:'baker1974', t:'Baker, V. R., &amp; Milton, D. J. (1974). Erosion by catastrophic floods on Mars and Earth. <em>Icarus</em>, 23(1), 27 to 41.', doi:'10.1016/0019-1035(74)90101-8'},
+ {id:'carr1979', t:'Carr, M. H. (1979). Formation of Martian flood features by release of water from confined aquifers. <em>Journal of Geophysical Research</em>, 84(B6), 2995 to 3007.', doi:'10.1029/JB084iB06p02995'},
+ {id:'glotch2005', t:'Glotch, T. D., &amp; Christensen, P. R. (2005). Geologic and mineralogic mapping of Aram Chaos: Evidence for a water-rich history. <em>Journal of Geophysical Research: Planets</em>, 110, E09006.', doi:'10.1029/2004JE002389'},
+ {id:'malin2000s', t:'Malin, M. C., &amp; Edgett, K. S. (2000). Sedimentary rocks of early Mars. <em>Science</em>, 290(5498), 1927 to 1937.', doi:'10.1126/science.290.5498.1927'},
+ {id:'bridges2012', t:'Bridges, N. T., et al. (2012). Planet-wide sand motion on Mars. <em>Geology</em>, 40(1), 31 to 34.', doi:'10.1130/G32373.1'},
+ {id:'plescia2004', t:'Plescia, J. B. (2004). Morphometric properties of Martian volcanoes. <em>Journal of Geophysical Research: Planets</em>, 109, E03003.', doi:'10.1029/2002JE002031'},
+ {id:'malin2000g', t:'Malin, M. C., &amp; Edgett, K. S. (2000). Evidence for recent groundwater seepage and surface runoff on Mars. <em>Science</em>, 288(5475), 2330 to 2335.', doi:'10.1126/science.288.5475.2330'},
+ {id:'dundas2012', t:'Dundas, C. M., Diniega, S., Hansen, C. J., Byrne, S., &amp; McEwen, A. S. (2012). Seasonal activity and morphological changes in martian gullies. <em>Icarus</em>, 220(1), 124 to 143.', doi:'10.1016/j.icarus.2012.04.005'}
+];
+const DA_REF_NUM = {}; DA_REFS.forEach((r,i)=>DA_REF_NUM[r.id]=i+1);
+function cite(ids){ return '<sup class="da-cite">['+ids.map(id=>`<a href="#daref-${id}">${DA_REF_NUM[id]}</a>`).join(', ')+']</sup>'; }
+const GEO_REFS = {
+  'Polar & Ice':['byrne2009'], 'Periglacial & Glacial':['holt2008','bramson2015'],
+  'Fluvial & Outflow':['baker1974','carr1979'], 'Chaos & Tectonic':['carr1979','glotch2005'],
+  'Sedimentary & Aeolian':['malin2000s','bridges2012'], 'Volcanic':['plescia2004'],
+  'Highland & Impact':['tanaka2014'], 'Gullies & Mass Wasting':['malin2000g','dundas2012']
+};
+
+function geoOf(p){ return GEO_BY_NAME[p.name] || 'Highland & Impact'; }
+function geoChip(p){ const k = geoOf(p), c = GEO_CLASSES[k]; return `<span class="da-chip"><i style="background:${c.c}"></i>${k}</span>`; }
+function orbitOf(id){ return parseInt(String(id).split('_')[1], 10); }
+function pairGap(p){ return (p.img && p.img.length === 2) ? Math.abs(orbitOf(p.img[0]) - orbitOf(p.img[1])) : null; }
+function median(a){ const s = a.filter(Number.isFinite).sort((x,y)=>x-y); if(!s.length) return null; const m = Math.floor(s.length/2); return s.length % 2 ? s[m] : (s[m-1]+s[m])/2; }
+function shortName(p){ return p.name.split('_').slice(0,-2).join(' '); }
+function fmtDur(days){ return days >= 365.25 ? (days/365.25).toFixed(1) + ' Earth yr' : Math.round(days) + ' days'; }
+function nf(v,d=0){ return Number.isFinite(v) ? v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}) : 'n/a'; }
+
+function renderAnalytics(){
+  const el = document.getElementById('datasetAnalytics'); if(!el) return;
+  const N = PUBS.length;
+  const kpi = (v,l,s) => `<div class="da-kpi"><div class="da-val">${v}</div><div class="da-lbl">${l}</div><div class="da-sub">${s}</div></div>`;
+  const latTxt = v => Math.abs(v).toFixed(1) + '°' + (v >= 0 ? 'N' : 'S');
+  const panel = (title, meta, body, refs) => `<div class="da-panel"><div class="da-head"><span class="da-title">${title}${refs?cite(refs):''}</span><span class="da-meta">${meta}</span></div>${body}</div>`;
+
+  // Planetary science: topography and coverage
+  const rel = PUBS.map(p=>p.relief).filter(Number.isFinite);
+  const relSum = rel.reduce((a,b)=>a+b,0), relMean = relSum/rel.length, relMed = median(rel);
+  const lowP = PUBS.reduce((a,b)=>b.min<a.min?b:a), highP = PUBS.reduce((a,b)=>b.max>a.max?b:a);
+  const lats = PUBS.map(p=>p.lat), latMin = Math.min(...lats), latMax = Math.max(...lats);
+  const north = PUBS.filter(p=>p.lat>=0).length, south = N - north;
+  const polar = PUBS.filter(p=>Math.abs(p.lat)>=65).length;
+  const post1 = PUBS.filter(p=>p.post===1).length, post2 = PUBS.filter(p=>p.post===2).length;
+  const kmRel = PUBS.filter(p=>p.relief>=1000).length, lowRel = PUBS.filter(p=>p.relief<100).length;
+
+  const sci = panel('Planetary Science · Topography &amp; Coverage','computed from VALID_MIN / VALID_MAX and PDS raster centers',
+    `<div class="da-grid">
+      ${kpi(nf(relSum/1000,1)+'<small>km</small>','Cumulative relief','Sum of vertical relief across all '+N+' DTMs')}
+      ${kpi(nf(relMed,0)+'<small>m</small>','Median relief','Mean '+nf(relMean,0)+' m · right-skewed by canyon and polar scarps')}
+      ${kpi(nf((highP.max-lowP.min)/1000,2)+'<small>km</small>','Elevation envelope',nf(lowP.min,0)+' m ('+shortName(lowP)+') to +'+nf(highP.max,0)+' m ('+shortName(highP)+')')}
+      ${kpi(nf(latMax-latMin,1)+'<small>° lat</small>','Latitude coverage',latTxt(latMin)+' to '+latTxt(latMax)+' · '+north+' northern / '+south+' southern')}
+      ${kpi(polar+'<small>/ '+N+'</small>','Polar targets (|lat| ≥ 65°)',Math.round(polar/N*100)+'% of portfolio in polar regions')}
+      ${kpi(kmRel,'Kilometer-scale relief','DTMs with ≥ 1,000 m of vertical relief')}
+      ${kpi(lowRel,'Low-relief plains (&lt; 100 m)','Smooth plains, mounds, and terrace targets')}
+      ${kpi(post1+' / '+post2,'1 m / 2 m post spacing','1 m posts resolve meter-scale landforms')}
+    </div>`, ['mcewen2007','kirk2008','smith2001']);
+
+  // Planetary geology: process classes
+  const classes = Object.keys(GEO_CLASSES).map(k=>{
+    const ps = PUBS.filter(p=>geoOf(p)===k), r = ps.map(p=>p.relief).filter(Number.isFinite);
+    return {k, n:ps.length, mean: r.length ? r.reduce((a,b)=>a+b,0)/r.length : null};
+  }).sort((a,b)=>b.n-a.n);
+  const maxN = Math.max(...classes.map(c=>c.n));
+  const ice = PUBS.filter(p=>['Polar & Ice','Periglacial & Glacial'].includes(geoOf(p))).length;
+  const aqueous = PUBS.filter(p=>['Fluvial & Outflow','Chaos & Tectonic'].includes(geoOf(p))).length;
+  const volc = PUBS.filter(p=>geoOf(p)==='Volcanic').length;
+  const topCls = classes.filter(c=>c.mean!==null).sort((a,b)=>b.mean-a.mean)[0];
+  const geoRows = `<div class="da-rows">
+      <div class="da-row da-row-head"><span>Process class</span><span>Share of portfolio</span><span style="text-align:right">DTMs</span><span style="text-align:right">Mean relief</span></div>
+      ${classes.map(c=>`<div class="da-row"><span><span class="da-chip" style="margin-left:0"><i style="background:${GEO_CLASSES[c.k].c}"></i>${c.k}</span><br><span style="font-size:.56rem;color:#aaa">${GEO_CLASSES[c.k].d} ${cite(GEO_REFS[c.k])}</span></span><span class="da-bar"><i style="width:${(c.n/maxN*100).toFixed(1)}%;background:${GEO_CLASSES[c.k].c}"></i></span><span class="n">${c.n}</span><span class="m">${nf(c.mean,0)} m</span></div>`).join('')}
+    </div>`;
+  const geo = panel('Planetary Geology · Process Classes','8 classes · each DTM assigned one dominant process',
+    `<div class="da-grid">
+      ${kpi(ice+'<small>/ '+N+'</small>','Ice-bearing terrains','Polar + periglacial/glacial · '+Math.round(ice/N*100)+'% of portfolio')}
+      ${kpi(aqueous+'<small>/ '+N+'</small>','Aqueous history record','Fluvial, outflow, and chaos collapse sites')}
+      ${kpi(volc,'Volcanic sites','Tharsis shields, paterae, and cone fields')}
+      ${kpi(topCls.k,'Highest mean relief class',nf(topCls.mean,0)+' m mean vertical relief')}
+    </div>${geoRows}`, ['tanaka2014']);
+
+  // Change detection: stereo-pair temporal baselines
+  const gaps = PUBS.map(p=>({p, g:pairGap(p)})).filter(o=>Number.isFinite(o.g));
+  const gMed = median(gaps.map(o=>o.g));
+  const longest = [...gaps].sort((a,b)=>b.g-a.g);
+  const yrOrb = MARS_YEAR_DAYS*MRO_ORBITS_PER_DAY;
+  const overYr = gaps.filter(o=>o.g>=yrOrb).length;
+  const shortB = gaps.filter(o=>o.g<=30*MRO_ORBITS_PER_DAY).length;
+  const active = PUBS.filter(p=>ACTIVE_SURFACE.has(p.name)).length;
+  const maxG = longest[0].g;
+  const cdRows = `<div class="da-rows">
+      <div class="da-row da-row-head"><span>Longest-baseline pairs · change-detection candidates</span><span>Relative temporal baseline</span><span style="text-align:right">Orbits</span><span style="text-align:right">≈ Elapsed</span></div>
+      ${longest.slice(0,6).map(o=>`<div class="da-row"><span>${shortName(o.p)}${geoChip(o.p)}<br><span style="font-size:.56rem;color:#aaa;font-family:'Courier New',monospace">${o.p.img.join(' · ')}</span></span><span class="da-bar"><i style="width:${(o.g/maxG*100).toFixed(1)}%;background:#111"></i></span><span class="n">${nf(o.g)}</span><span class="m">${fmtDur(o.g/MRO_ORBITS_PER_DAY)}</span></div>`).join('')}
+    </div>`;
+  const cd = panel('Change Detection · Multi-Temporal Stereo','orbit gap between the two HiRISE source images',
+    `<div class="da-grid">
+      ${kpi(nf(gMed)+'<small>orbits</small>','Median stereo baseline','≈ '+fmtDur(gMed/MRO_ORBITS_PER_DAY)+' between source images')}
+      ${kpi(overYr,'Pairs ≥ 1 Mars year apart','Full seasonal cycle between images; suited to change analysis')}
+      ${kpi(shortB,'Short-baseline pairs (≤ 30 days)','Minimal surface change between stereo images')}
+      ${kpi(active+'<small>/ '+N+'</small>','Active-surface targets','Seasonal frost, polar scarp, gully, and dune activity sites')}
+    </div>${cdRows}
+    <div class="da-note">Temporal baselines are estimated from the MRO orbit numbers in each HiRISE product ID at about 12.9 orbits per Earth day (≈112 min period), so elapsed times are approximate. Long baselines flag pairs where surface change between images (frost, mass wasting, dune migration) can affect stereo correlation and are candidates for dedicated change-detection work. MRO orbit geometry follows Zurek &amp; Smrekar (2007); documented present-day activity at gully, dune, and polar sites follows Dundas et al. (2012), Bridges et al. (2012), and Byrne (2009).</div>`, ['zurek2007','dundas2012','bridges2012','byrne2009']);
+
+  // Data quality
+  const rmsP = PUBS.filter(p=>Number.isFinite(p.rms_px));
+  const best = rmsP.reduce((a,b)=>b.rms_px<a.rms_px?b:a);
+  const sub25 = rmsP.filter(p=>p.rms_px<0.25).length;
+  const molaN = PUBS.filter(p=>Number.isFinite(p.mola_d)).length;
+  const molaMed = median(PUBS.map(p=>Number.isFinite(p.mola_d)?Math.abs(p.mola_d):null));
+  const qa = panel('Geodetic Quality · Bundle Adjustment &amp; MOLA Control','README-reported residuals',
+    `<div class="da-grid">
+      ${kpi(nf(median(rmsP.map(p=>p.rms_px)),3)+'<small>px</small>','Median total RMS',rmsP.length+' of '+N+' DTMs report total RMS')}
+      ${kpi(nf(best.rms_px,3)+'<small>px</small>','Best total RMS',shortName(best))}
+      ${kpi(sub25+'<small>/ '+rmsP.length+'</small>','Sub-0.25 px solutions','Total RMS below a quarter pixel')}
+      ${kpi(nf(molaMed,2)+'<small>m</small>','Median |Δ MOLA|',molaN+' of '+N+' DTMs report MOLA offsets')}
+    </div>`, ['kirk2008','smith2001']);
+
+  const refList = `<div class="da-panel"><div class="da-head"><span class="da-title">References</span><span class="da-meta">peer-reviewed sources for the panels above</span></div><ol class="da-refs">${DA_REFS.map(r=>`<li id="daref-${r.id}">${r.t} <a href="https://doi.org/${r.doi}" target="_blank" rel="noopener">https://doi.org/${r.doi}</a></li>`).join('')}</ol></div>`;
+  el.innerHTML = sci + geo + cd + qa + refList;
+}
+
+buildProjectSelect();buildFilters();buildPubList();renderAnalytics();
 </script>
 
 <script>
