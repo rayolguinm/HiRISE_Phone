@@ -795,6 +795,32 @@ html.lock,html.lock body{overflow:hidden!important}
   .scroll-cue i{height:20px}
 }
 
+/* ══ SWIPE ROWS: whole cards, no cut edges, page dots · Raymundo "R@y" Olguin ══ */
+.hscroll,.hscroll.wide,.hscroll-in,.rv-viz-bank,#datasetAnalytics,#pubListItems{grid-auto-columns:100%!important;column-gap:28px!important;scroll-snap-type:x mandatory;scroll-behavior:smooth}
+.hscroll,.hscroll.wide{padding:2px 16px 4px!important;scroll-padding:0 16px!important}
+.hscroll>*{scroll-snap-align:start;scroll-snap-stop:always;height:auto!important;align-self:start}
+.hscroll .st-card{min-height:0!important}
+.hscroll-in{margin:0 0 6px!important;padding:0!important;scroll-padding:0!important}
+.hscroll-in>*{scroll-snap-stop:always}
+#pubListItems{padding:0 16px!important;scroll-padding:0 16px!important}
+#datasetAnalytics{padding:0 16px 4px!important;scroll-padding:0 16px!important}
+#datasetAnalytics>.da-panel{scroll-snap-stop:always;align-self:start}
+.rv-viz-bank{border-top:1px solid var(--line)}
+.rv-viz-bank>div{border-right:0!important;scroll-snap-stop:always}
+/* page dots */
+.hscroll,.hscroll-in,.rv-viz-bank,#datasetAnalytics{overflow-y:hidden!important;transition:height .28s ease}
+.rv-viz-bank>div{height:auto!important;align-self:start}
+@media (prefers-reduced-motion:reduce){.hscroll,.hscroll-in,.rv-viz-bank,#datasetAnalytics{transition:none}}
+.dots{display:flex;justify-content:center;align-items:center;gap:7px;height:22px;margin:6px 0 2px}
+.dots i{width:6px;height:6px;border-radius:3px;background:#d4d4d4;transition:width .25s,background .25s}
+.dots i.on{width:18px;background:#111}
+.dots[data-n="1"]{display:none}
+.rv-viz-panel .dots{margin:4px 0 10px}
+/* landscape / wide: two whole cards per page */
+@media (min-width:600px){
+  .hscroll,.hscroll.wide,.rv-viz-bank,#datasetAnalytics,#pubListItems{grid-auto-columns:calc((100% - 28px)/2)!important}
+}
+
 </style>
 </head>
 <body>
@@ -1943,6 +1969,22 @@ buildProjectSelect();buildFilters();buildPubList();renderAnalytics();
 
 
 (function(){var h=location.hash.slice(1),t=h&&document.getElementById(h);if(!t)return;var pg=t.classList.contains('pg')?t:t.closest('.pg');if(!pg)return;var n=document.getElementById('nav-'+pg.id.replace('pg-',''));if(n)n.click();if(t!==pg)setTimeout(function(){t.scrollIntoView({block:'start'});},80);})();
+
+// ── page dots for swipe rows ──
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('.hscroll,.hscroll-in,.rv-viz-bank,#datasetAnalytics,#pubListItems'));
+  rows.forEach(function(row){
+    var dots=document.createElement('div');dots.className='dots';dots.setAttribute('aria-hidden','true');row.parentNode.insertBefore(dots,row.nextSibling);
+    function step(){var k=row.children,a=k[0];if(!a)return row.clientWidth;for(var i=1;i<k.length;i++){if(k[i].offsetLeft>a.offsetLeft+4)return k[i].offsetLeft-a.offsetLeft;}return row.clientWidth;}
+    function build(){var st=step(),n=Math.max(1,Math.round((row.scrollWidth-row.clientWidth)/st)+1);dots.dataset.n=n;dots.innerHTML=new Array(n+1).join('<i></i>');mark();}
+    function fit(){if(row.id==='pubListItems')return;var L=row.scrollLeft,R=L+row.clientWidth,cs=getComputedStyle(row),h=0;
+      [].forEach.call(row.children,function(c){var x=c.offsetLeft-row.offsetLeft;if(x+c.offsetWidth>L+2&&x<R-2)h=Math.max(h,c.offsetHeight);});
+      if(h)row.style.height=(h+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom))+'px';}
+    function mark(){var st=step(),i=Math.round(row.scrollLeft/st),d=dots.children;for(var j=0;j<d.length;j++)d[j].classList.toggle('on',j===Math.min(i,d.length-1));fit();}
+    var raf=0;row.addEventListener('scroll',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(mark);},{passive:true});
+    window.addEventListener('resize',build);row.addEventListener('toggle',fit,true);build();
+  });
+})();
 </script>
 
 <script>
