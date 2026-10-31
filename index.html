@@ -769,6 +769,32 @@ html.lock,html.lock body{overflow:hidden!important}
 .hscroll,.hscroll-in,.rv-viz-bank,#datasetAnalytics,#pubListItems,.st-chips{touch-action:pan-x pan-y}
 @media (max-width:374px){.cx-min h1{font-size:32px}.chap h2{font-size:34px}.hscroll{grid-auto-columns:88%}}
 
+/* ══ iPHONE 18 GENERATION (18 / 18 Pro 402pt · Air 420pt · 18 Pro Max 440pt · landscape) · Raymundo "R@y" Olguin ══ */
+.cx-hero{height:100svh!important;min-height:min(520px,100svh)!important;max-height:none!important}
+@supports not (height:100svh){.cx-hero{height:100vh!important}}
+.cx-min h1{font-size:clamp(32px,10.4vw,48px)!important}
+.chap h2{font-size:clamp(34px,9.6vw,46px)!important}
+.cx-quote{font-size:clamp(28px,7.6vw,36px)}
+@media (min-width:400px){.cx-lead{font-size:17px}.st-h,.sec{font-size:24px}}
+@media (min-width:430px){.hscroll{grid-auto-columns:78%}.cx-split-img{max-height:420px}.im-view{max-height:340px}}
+/* landscape / wide: centred reading column, cover stays full-bleed, two cards per swipe */
+@media (min-width:600px){
+  .pg{max-width:680px;margin-left:auto;margin-right:auto}
+  .cx-hero{width:100vw;margin-left:calc(50% - 50vw)}
+  .readbar span{padding-left:max(18px,calc(50% - 322px));padding-right:max(18px,calc(50% - 322px))}
+  .hscroll,.hscroll.wide{grid-auto-columns:47%}
+  .rv-viz-bank{grid-auto-columns:48%}
+  #datasetAnalytics{grid-auto-columns:60%}
+  #pubListItems{grid-auto-columns:60%}
+  .cx-split-img{max-height:380px}
+  .im-view{max-height:360px}
+}
+@media (orientation:landscape) and (max-height:500px){
+  .cx-min{padding:16px 26px 14px}
+  .cx-hero-credit{bottom:58px}
+  .scroll-cue i{height:20px}
+}
+
 </style>
 </head>
 <body>
